@@ -27,6 +27,7 @@ const SITE_CONFIG = {
     { id: "decoracao", label: "Decoração", color: "#A35D31" },
     { id: "escritorio", label: "Organização de escritório", color: "#C89F43" },
     { id: "tiro-esportivo", label: "Tiro esportivo", color: "#4F5D4A" },
+    { id: "automotivo", label: "Automotivo", color: "#365E63" },
     { id: "infantil", label: "Infantil", color: "#5B7685" },
     { id: "outros", label: "Outros", color: "#6F6863" },
   ],
