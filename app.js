@@ -23,7 +23,7 @@
   SITE_CONFIG.categories.forEach((c) => (categoryMap[c.id] = c));
 
   let allProducts = [];
-  let activeFilter = "all";
+  let activeFilter = "infantil";
 
   function catColor(catId) {
     return (categoryMap[catId] && categoryMap[catId].color) || "#8478AC";
