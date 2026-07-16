@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sete Vidas Maker — Portfólio</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header class="topbar">
+    <div class="brand"><img src="images/logo-mark.png" alt=""><span id="brand-name">Sete Vidas Maker</span></div>
+    <nav>
+      <a href="#produtos">Produtos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Peças pra <span class="hl">deixar sua mesa</span> pronta pro próximo turno.</h1>
+      <p id="tagline">Impressão 3D funcional pra jogos e board games — porque sempre dá pra imprimir mais uma vida.</p>
+      <div class="hero-badges">
+        <span class="badge">FDM</span>
+        <span class="badge">PLA / PETG</span>
+        <span class="badge">Sob encomenda</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hc-label">// ficha técnica</div>
+      <h3>Cada peça, catalogada</h3>
+      <p>Material, cor e tempo de impressão de cada item, igual ficha de carta — pra você saber exatamente o que está levando.</p>
+    </div>
+  </section>
+
+  <div id="filters" class="filters"></div>
+
+  <section id="produtos" class="grid" aria-live="polite"></section>
+
+  <footer id="contato">
+    <span>Feito à mão, camada por camada — <span id="brand-name-2">Sete Vidas Maker</span></span>
+    <span>Sua cidade · seu.email@exemplo.com</span>
+  </footer>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin — Cadastro de produtos</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="admin-shell">
+  <header class="topbar" style="padding-top:0;">
+    <div class="brand"><img src="images/logo-mark.png" alt="">Admin</div>
+    <nav><a href="index.html">← Ver site</a></nav>
+  </header>
+
+  <!-- Conexão com o GitHub -->
+  <div class="admin-panel" id="connect-panel">
+    <h2>Conectar ao repositório</h2>
+    <p class="hint">Cole seu Personal Access Token do GitHub (fine-grained, com permissão "Contents: Read and write" apenas neste repositório). Por segurança, o token permanece apenas nesta sessão e é apagado quando o navegador é fechado.</p>
+    <div class="field">
+      <label for="pat">Personal Access Token</label>
+      <input type="password" id="pat" placeholder="github_pat_...">
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="owner">Usuário/organização</label>
+        <input type="text" id="owner">
+      </div>
+      <div class="field">
+        <label for="repo">Repositório</label>
+        <input type="text" id="repo">
+      </div>
+    </div>
+    <button class="btn btn-primary" id="connect-btn">Conectar</button>
+    <button class="btn btn-secondary" id="disconnect-btn" style="display:none;">Desconectar</button>
+    <div class="status-line" id="connect-status"></div>
+  </div>
+
+  <!-- Formulário de novo produto -->
+  <div class="admin-panel" id="form-panel" style="display:none;">
+    <h2>Cadastrar produto</h2>
+    <p class="hint">Preencha e salve — isso faz um commit direto no products.json do repositório.</p>
+
+    <div class="status-line" id="save-status"></div>
+
+    <div class="field">
+      <label for="p-name">Nome</label>
+      <input type="text" id="p-name" placeholder="Deckbox Modular 100+">
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="p-category">Categoria</label>
+        <select id="p-category"></select>
+      </div>
+      <div class="field">
+        <label for="p-printtime">Tempo de impressão</label>
+        <input type="text" id="p-printtime" placeholder="4h30">
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="p-material">Material</label>
+        <input type="text" id="p-material" placeholder="PETG">
+      </div>
+      <div class="field">
+        <label for="p-color">Cor</label>
+        <input type="text" id="p-color" placeholder="Preto fosco">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="p-desc">Descrição</label>
+      <textarea id="p-desc" placeholder="Breve descrição do produto"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="p-tags">Tags (separadas por vírgula)</label>
+      <input type="text" id="p-tags" placeholder="encaixável, resistente">
+    </div>
+
+    <div class="field">
+      <label for="p-image">Foto (opcional — sem foto usa um placeholder da categoria)</label>
+      <input type="file" id="p-image" accept="image/*">
+    </div>
+
+    <button class="btn btn-primary" id="save-btn">Salvar produto</button>
+  </div>
+
+  <!-- Lista de produtos já cadastrados -->
+  <div class="admin-panel" id="list-panel" style="display:none;">
+    <h2>Produtos cadastrados</h2>
+    <div class="status-line" id="list-status"></div>
+    <div id="product-list"></div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

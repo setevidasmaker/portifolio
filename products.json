@@ -1,0 +1,46 @@
+[
+  {
+    "id": "exemplo-deckbox-1",
+    "name": "Deckbox Modular 100+",
+    "category": "deckbox",
+    "material": "PETG",
+    "color": "Preto fosco",
+    "printTime": "4h30",
+    "description": "Deckbox com encaixe modular, capacidade pra 100 cartas sleevadas. Tampa com trava.",
+    "tags": ["encaixável", "resistente"],
+    "image": "images/placeholder-deckbox.svg"
+  },
+  {
+    "id": "exemplo-marcador-1",
+    "name": "Marcador de Dano/Status (kit 10)",
+    "category": "marcador",
+    "material": "PLA",
+    "color": "Vermelho + Verde",
+    "printTime": "1h15",
+    "description": "Kit com 10 marcadores empilháveis pra vida, veneno e outros status em jogos de carta.",
+    "tags": ["empilhável", "kit"],
+    "image": "images/placeholder-marcador.svg"
+  },
+  {
+    "id": "exemplo-organizador-1",
+    "name": "Organizador de Cabos Modular",
+    "category": "organizador",
+    "material": "PETG",
+    "color": "Cinza",
+    "printTime": "2h",
+    "description": "Suporte modular pra organizar cabos e fontes na mesa, encaixa em fileira.",
+    "tags": ["modular", "mesa"],
+    "image": "images/placeholder-organizador.svg"
+  },
+  {
+    "id": "teste-contador-vida-7",
+    "name": "Contador de Vida 7",
+    "category": "marcador",
+    "material": "PLA",
+    "color": "Vinho + Preto",
+    "printTime": "45min",
+    "description": "Contador de vida giratório de 0 a 20, com o número 7 em destaque — a peça de teste da Sete Vidas Maker.",
+    "tags": ["giratório", "edição de teste"],
+    "image": "images/placeholder-marcador.svg"
+  }
+]

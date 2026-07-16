@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#1B1717"/>
+  <polygon points="200,90 220,150 285,150 233,188 252,250 200,213 148,250 167,188 115,150 180,150"
+    fill="#1F1919" stroke="#B23347" stroke-width="3"/>
+  <text x="200" y="280" text-anchor="middle" fill="#857874" font-family="monospace" font-size="12">sem foto — acessório</text>
+</svg>
