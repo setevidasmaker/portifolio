@@ -29,6 +29,24 @@
       </div>`;
   }
 
+  function setupGallery(productName) {
+    const mainImage = document.getElementById("product-main-image");
+    const thumbnails = document.querySelectorAll(".gallery-thumbnail");
+    if (!mainImage || !thumbnails.length) return;
+
+    thumbnails.forEach((thumbnail) => {
+      thumbnail.addEventListener("click", () => {
+        mainImage.src = thumbnail.dataset.image;
+        mainImage.alt = `${productName} — foto ${Number(thumbnail.dataset.index) + 1}`;
+        thumbnails.forEach((item) => {
+          const isActive = item === thumbnail;
+          item.classList.toggle("is-active", isActive);
+          item.setAttribute("aria-pressed", String(isActive));
+        });
+      });
+    });
+  }
+
   fetch("products.json?_=" + Date.now())
     .then((response) => {
       if (!response.ok) throw new Error("Falha ao carregar catálogo");
@@ -40,6 +58,7 @@
 
       const category = categoryMap[product.category] || { label: product.category, color: "#171515" };
       const categoryUrl = `index.html?categoria=${encodeURIComponent(product.category)}#produtos`;
+      const galleryImages = [product.image, ...(product.images || [])].filter((image, index, items) => image && items.indexOf(image) === index);
       const shootingNote = product.category === "tiro-esportivo"
         ? `<p class="shooting-note">Produto destinado exclusivamente à organização e ao armazenamento. Munições não acompanham o produto. Utilize sempre de acordo com a legislação vigente.</p>`
         : "";
@@ -48,8 +67,18 @@
       setWhatsappLinks(product.name);
       detail.innerHTML = `
         <article class="product-detail">
-          <div class="product-detail-media">
-            <img src="${product.image || "images/logo-mark.png"}" alt="${product.name}">
+          <div class="product-detail-gallery">
+            <div class="product-detail-media">
+              <img id="product-main-image" src="${galleryImages[0] || "images/logo-mark.png"}" alt="${product.name} — foto 1">
+            </div>
+            ${galleryImages.length > 1 ? `
+              <div class="gallery-thumbnails" aria-label="Fotos do produto">
+                ${galleryImages.map((image, index) => `
+                  <button class="gallery-thumbnail${index === 0 ? " is-active" : ""}" type="button" data-image="${image}" data-index="${index}" aria-label="Ver foto ${index + 1} de ${galleryImages.length}" aria-pressed="${index === 0}">
+                    <img src="${image}" alt="" loading="lazy">
+                  </button>`).join("")}
+              </div>
+              <p class="gallery-hint">Selecione uma miniatura para ampliar</p>` : ""}
           </div>
           <div class="product-detail-copy">
             <a class="detail-category" href="${categoryUrl}" style="background:${category.color}">${category.label}</a>
@@ -69,6 +98,7 @@
             ${shootingNote}
           </div>
         </article>`;
+      setupGallery(product.name);
     })
     .catch(renderNotFound);
 })();

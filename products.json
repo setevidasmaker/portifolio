@@ -8,7 +8,14 @@
     "printTime": "Sob encomenda",
     "description": "Marcador leve e criativo que encaixa na página, deixando o rostinho do gato visível para você encontrar facilmente onde parou.",
     "tags": ["leitura", "presente", "gatos"],
-    "image": "images/products/marcador-pagina-gato.png"
+    "image": "images/products/marcador-pagina-gato.png",
+    "images": [
+      "images/products/gallery/marcador-pagina-gato/01.jpg",
+      "images/products/gallery/marcador-pagina-gato/02.jpg",
+      "images/products/gallery/marcador-pagina-gato/03.jpg",
+      "images/products/gallery/marcador-pagina-gato/04.jpg",
+      "images/products/gallery/marcador-pagina-gato/05.jpg"
+    ]
   },
   {
     "id": "marcadores-status-tcg",
@@ -19,7 +26,11 @@
     "printTime": "Sob encomenda",
     "description": "Kit com cinco marcadores de status em alto-relevo para organizar as partidas e identificar rapidamente cada condição de jogo.",
     "tags": ["TCG", "kit com 5", "alto-relevo"],
-    "image": "images/products/marcadores-status-tcg.png"
+    "image": "images/products/marcadores-status-tcg.png",
+    "images": [
+      "images/products/gallery/marcadores-status-tcg/01.jpg",
+      "images/products/gallery/marcadores-status-tcg/02.jpg"
+    ]
   },
   {
     "id": "organizador-cabos-mesa",
@@ -30,7 +41,12 @@
     "printTime": "Sob encomenda",
     "description": "Suportes para fixação sob a mesa que mantêm fios e cabos agrupados, escondidos e bem posicionados no setup ou escritório.",
     "tags": ["kit com 6", "home office", "setup"],
-    "image": "images/products/organizador-cabos-mesa.png"
+    "image": "images/products/organizador-cabos-mesa.png",
+    "images": [
+      "images/products/gallery/organizador-cabos-mesa/01.jpg",
+      "images/products/gallery/organizador-cabos-mesa/02.jpg",
+      "images/products/gallery/organizador-cabos-mesa/03.jpg"
+    ]
   },
   {
     "id": "estojo-municao-9mm",
@@ -41,7 +57,14 @@
     "printTime": "Sob encomenda",
     "description": "Estojo compacto com divisórias internas, tampa articulada e trava frontal. Capacidade para até 50 unidades; munições não inclusas.",
     "tags": ["capacidade 50", "tampa articulada", "organização"],
-    "image": "images/products/estojo-municao-9mm.png"
+    "image": "images/products/estojo-municao-9mm.png",
+    "images": [
+      "images/products/gallery/estojo-municao-9mm/01.jpg",
+      "images/products/gallery/estojo-municao-9mm/02.jpg",
+      "images/products/gallery/estojo-municao-9mm/03.jpg",
+      "images/products/gallery/estojo-municao-9mm/04.jpg",
+      "images/products/gallery/estojo-municao-9mm/05.jpg"
+    ]
   },
   {
     "id": "estojo-municao-personalizado",
@@ -52,7 +75,12 @@
     "printTime": "Sob encomenda",
     "description": "Versão personalizada do estojo organizador para 9 mm, com arte em destaque na tampa e capacidade para até 50 unidades.",
     "tags": ["personalizado", "capacidade 50", "sob encomenda"],
-    "image": "images/products/estojo-municao-personalizado.png"
+    "image": "images/products/estojo-municao-personalizado.png",
+    "images": [
+      "images/products/gallery/estojo-municao-personalizado/01.jpg",
+      "images/products/gallery/estojo-municao-personalizado/02.jpg",
+      "images/products/gallery/estojo-municao-personalizado/03.jpg"
+    ]
   },
   {
     "id": "kit-reguas-leitura",
@@ -63,7 +91,16 @@
     "printTime": "Sob encomenda",
     "description": "Guias com janela central que destacam uma linha por vez, ajudando no foco durante a leitura e a alfabetização.",
     "tags": ["alfabetização", "foco", "kit com 2"],
-    "image": "images/products/kit-reguas-leitura.png"
+    "image": "images/products/kit-reguas-leitura.png",
+    "images": [
+      "images/products/gallery/kit-reguas-leitura/01.jpg",
+      "images/products/gallery/kit-reguas-leitura/02.jpg",
+      "images/products/gallery/kit-reguas-leitura/03.jpg",
+      "images/products/gallery/kit-reguas-leitura/05.jpg",
+      "images/products/gallery/kit-reguas-leitura/06.jpg",
+      "images/products/gallery/kit-reguas-leitura/07.jpg",
+      "images/products/gallery/kit-reguas-leitura/08.jpg"
+    ]
   },
   {
     "id": "separador-cabos-usb",
@@ -74,7 +111,14 @@
     "printTime": "Sob encomenda",
     "description": "Organizador compacto para manter cabos USB, USB-C, mouse, teclado e carregadores sempre separados e ao alcance.",
     "tags": ["3, 5 ou 7 baias", "mesa", "setup"],
-    "image": "images/products/separador-cabos-usb.png"
+    "image": "images/products/separador-cabos-usb.png",
+    "images": [
+      "images/products/gallery/separador-cabos-usb/01.jpg",
+      "images/products/gallery/separador-cabos-usb/02.jpg",
+      "images/products/gallery/separador-cabos-usb/03.jpg",
+      "images/products/gallery/separador-cabos-usb/04.jpg",
+      "images/products/gallery/separador-cabos-usb/05.jpg"
+    ]
   },
   {
     "id": "suporte-tag-pedagio",
@@ -85,7 +129,13 @@
     "printTime": "Sob encomenda",
     "description": "Suporte discreto para usar a tag de pedágio no para-brisa sem precisar colá-la diretamente no vidro do veículo.",
     "tags": ["automotivo", "removível", "compacto"],
-    "image": "images/products/suporte-tag-pedagio.webp"
+    "image": "images/products/suporte-tag-pedagio.webp",
+    "images": [
+      "images/products/gallery/suporte-tag-pedagio/01.webp",
+      "images/products/gallery/suporte-tag-pedagio/02.webp",
+      "images/products/gallery/suporte-tag-pedagio/03.webp",
+      "images/products/gallery/suporte-tag-pedagio/04.webp"
+    ]
   },
   {
     "id": "kit-chaveiros-caveira",
@@ -96,6 +146,11 @@
     "printTime": "Sob encomenda",
     "description": "Dupla de chaveiros com visual marcante em preto e branco, leves e acompanhados de argolas metálicas.",
     "tags": ["kit com 2", "presente", "argola metálica"],
-    "image": "images/products/kit-chaveiros-caveira.png"
+    "image": "images/products/kit-chaveiros-caveira.png",
+    "images": [
+      "images/products/gallery/kit-chaveiros-caveira/01.jpg",
+      "images/products/gallery/kit-chaveiros-caveira/02.jpg",
+      "images/products/gallery/kit-chaveiros-caveira/03.jpg"
+    ]
   }
 ]
