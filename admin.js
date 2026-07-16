@@ -10,7 +10,7 @@
   const saveStatus = $("save-status");
   const listStatus = $("list-status");
   const saveBtn = $("save-btn");
-  const categorySelect = $("p-category");
+  const categoriesEl = $("p-categories");
   const productListEl = $("product-list");
 
   let state = {
@@ -87,10 +87,10 @@
     });
   }
 
-  // ---------- category select ----------
+  // ---------- category checklist ----------
   function populateCategories() {
-    categorySelect.innerHTML = SITE_CONFIG.categories
-      .map((c) => `<option value="${c.id}">${c.label}</option>`)
+    categoriesEl.innerHTML = SITE_CONFIG.categories
+      .map((c) => `<label class="category-option"><input type="checkbox" value="${c.id}"><span>${c.label}</span></label>`)
       .join("");
   }
 
@@ -176,13 +176,18 @@
     }
     productListEl.innerHTML = "";
     state.products.forEach((p) => {
+      const categoryIds = Array.isArray(p.categories) && p.categories.length ? p.categories : [p.category];
+      const categoryLabels = categoryIds.filter(Boolean).map((id) => {
+        const category = SITE_CONFIG.categories.find((item) => item.id === id);
+        return category ? category.label : id;
+      });
       const row = document.createElement("div");
       row.className = "admin-list-item";
       row.innerHTML = `
         <img src="${p.image || "images/logo-mark.png"}" alt="">
         <div class="info">
           <strong>${p.name}</strong>
-          <span>${p.category} · ${p.material || "—"} · ${p.printTime || "—"}</span>
+          <span>${categoryLabels.join(", ")} · ${p.material || "—"} · ${p.printTime || "—"}</span>
         </div>
         <button class="btn btn-danger btn-small" data-id="${p.id}">Excluir</button>
       `;
@@ -231,6 +236,11 @@
       showStatus(saveStatus, "Dá um nome pro produto antes de salvar.", "err");
       return;
     }
+    const selectedCategories = Array.from(categoriesEl.querySelectorAll("input:checked"), (input) => input.value);
+    if (!selectedCategories.length) {
+      showStatus(saveStatus, "Marque pelo menos uma categoria.", "err");
+      return;
+    }
 
     saveBtn.disabled = true;
     showStatus(saveStatus, "Salvando...", "busy");
@@ -244,7 +254,8 @@
       const newProduct = {
         id: name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") + "-" + Date.now().toString(36),
         name,
-        category: categorySelect.value,
+        category: selectedCategories[0],
+        categories: selectedCategories,
         material: $("p-material").value.trim(),
         color: $("p-color").value.trim(),
         printTime: $("p-printtime").value.trim(),
@@ -260,6 +271,7 @@
       showStatus(saveStatus, "Produto salvo! O site atualiza em cerca de 1 minuto.", "ok");
       ["p-name", "p-material", "p-color", "p-printtime", "p-desc", "p-tags"].forEach((id) => ($(id).value = ""));
       $("p-image").value = "";
+      categoriesEl.querySelectorAll("input:checked").forEach((input) => (input.checked = false));
       renderList();
     } catch (e) {
       showStatus(saveStatus, "Erro ao salvar: " + e.message, "err");

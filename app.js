@@ -32,10 +32,15 @@
   function catLabel(catId) {
     return (categoryMap[catId] && categoryMap[catId].label) || catId;
   }
+  function productCategories(product) {
+    const categories = Array.isArray(product.categories) ? product.categories.filter(Boolean) : [];
+    if (product.category && !categories.includes(product.category)) categories.unshift(product.category);
+    return categories.length ? categories : ["outros"];
+  }
 
   function renderFilters() {
     const availableCategories = SITE_CONFIG.categories.filter((category) =>
-      allProducts.some((product) => product.category === category.id)
+      allProducts.some((product) => productCategories(product).includes(category.id))
     );
     const buttons = [{ id: "all", label: "Todos" }, ...availableCategories.map((c) => ({ id: c.id, label: c.label }))];
     filtersEl.innerHTML = "";
@@ -53,7 +58,7 @@
   }
 
   function renderGrid() {
-    const items = activeFilter === "all" ? allProducts : allProducts.filter((p) => p.category === activeFilter);
+    const items = activeFilter === "all" ? allProducts : allProducts.filter((p) => productCategories(p).includes(activeFilter));
 
     if (items.length === 0) {
       grid.innerHTML = `
@@ -66,14 +71,17 @@
 
     grid.innerHTML = "";
     items.forEach((p, i) => {
+      const displayCategory = activeFilter !== "all" && productCategories(p).includes(activeFilter)
+        ? activeFilter
+        : (p.category || productCategories(p)[0]);
       const card = document.createElement("article");
       card.className = "card";
-      card.style.setProperty("--cat-color", catColor(p.category));
+      card.style.setProperty("--cat-color", catColor(displayCategory));
       card.style.animationDelay = (i * 0.04) + "s";
 
       card.innerHTML = `
         <div class="card-image-wrap">
-          <span class="cat-chip">${catLabel(p.category)}</span>
+          <span class="cat-chip">${catLabel(displayCategory)}</span>
           <img src="${p.image || "images/logo-mark.png"}" alt="${p.name}" loading="lazy">
         </div>
         <div class="card-body">
@@ -96,7 +104,7 @@
     .then((r) => r.json())
     .then((data) => {
       allProducts = data;
-      const validFilters = new Set(["all", ...allProducts.map((product) => product.category)]);
+      const validFilters = new Set(["all", ...allProducts.flatMap(productCategories)]);
       if (!validFilters.has(activeFilter)) activeFilter = "infantil";
       renderFilters();
       renderGrid();

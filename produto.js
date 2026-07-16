@@ -5,6 +5,12 @@
   const whatsappBase = `https://wa.me/${contact.whatsapp || "5518981315272"}`;
   const categoryMap = Object.fromEntries(SITE_CONFIG.categories.map((category) => [category.id, category]));
 
+  function productCategories(product) {
+    const categories = Array.isArray(product.categories) ? product.categories.filter(Boolean) : [];
+    if (product.category && !categories.includes(product.category)) categories.unshift(product.category);
+    return categories.length ? categories : ["outros"];
+  }
+
   document.getElementById("detail-brand-name").textContent = SITE_CONFIG.siteName;
   document.getElementById("detail-instagram").href = contact.instagram || "https://www.instagram.com/setevidasmaker/";
 
@@ -56,10 +62,12 @@
       const product = products.find((item) => item.id === productId);
       if (!product) return renderNotFound();
 
-      const category = categoryMap[product.category] || { label: product.category, color: "#171515" };
-      const categoryUrl = `index.html?categoria=${encodeURIComponent(product.category)}#produtos`;
+      const productCategoryIds = productCategories(product);
+      const primaryCategoryId = product.category || productCategoryIds[0];
+      const primaryCategory = categoryMap[primaryCategoryId] || { label: primaryCategoryId, color: "#171515" };
+      const categoryUrl = `index.html?categoria=${encodeURIComponent(primaryCategoryId)}#produtos`;
       const galleryImages = [product.image, ...(product.images || [])].filter((image, index, items) => image && items.indexOf(image) === index);
-      const shootingNote = product.category === "tiro-esportivo"
+      const shootingNote = productCategoryIds.includes("tiro-esportivo")
         ? `<p class="shooting-note">Produto destinado exclusivamente à organização e ao armazenamento. Munições não acompanham o produto. Utilize sempre de acordo com a legislação vigente.</p>`
         : "";
 
@@ -81,7 +89,12 @@
               <p class="gallery-hint">Selecione uma miniatura para ampliar</p>` : ""}
           </div>
           <div class="product-detail-copy">
-            <a class="detail-category" href="${categoryUrl}" style="background:${category.color}">${category.label}</a>
+            <div class="detail-categories">
+              ${productCategoryIds.map((categoryId) => {
+                const category = categoryMap[categoryId] || { label: categoryId, color: "#171515" };
+                return `<a class="detail-category" href="index.html?categoria=${encodeURIComponent(categoryId)}#produtos" style="background:${category.color}">${category.label}</a>`;
+              }).join("")}
+            </div>
             <h1>${product.name}</h1>
             <p class="detail-description">${product.description || "Peça produzida sob encomenda pela Sete Vidas Maker."}</p>
             <div class="detail-specs">
@@ -93,7 +106,7 @@
             <p class="filament-note"><strong>Materiais disponíveis:</strong> trabalhamos com PLA, PETG e ABS. Consulte a disponibilidade de cores e filamentos para o seu pedido.</p>
             <div class="detail-actions">
               <a class="button button-primary js-detail-whatsapp" href="${whatsappBase}?text=${encodeURIComponent(`Olá! Vi o produto ${product.name} no site e gostaria de pedir um orçamento.`)}" target="_blank" rel="noopener">Pedir orçamento pelo WhatsApp <span aria-hidden="true">↗</span></a>
-              <a class="button button-secondary" href="${categoryUrl}">Ver mais desta categoria</a>
+              <a class="button button-secondary" href="${categoryUrl}">Ver mais em ${primaryCategory.label}</a>
             </div>
             ${shootingNote}
           </div>

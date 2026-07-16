@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Admin — Cadastro de produtos</title>
 <link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="stylesheet" href="style.css?v=20260716-5">
+<link rel="stylesheet" href="style.css?v=20260716-9">
 </head>
 <body>
 
@@ -53,8 +53,9 @@
 
     <div class="field-row">
       <div class="field">
-        <label for="p-category">Categoria</label>
-        <select id="p-category"></select>
+        <span class="field-label">Categorias</span>
+        <div class="category-checklist" id="p-categories" role="group" aria-label="Categorias do produto"></div>
+        <small class="field-help">Marque todas as categorias em que o produto deve aparecer.</small>
       </div>
       <div class="field">
         <label for="p-printtime">Tempo de impressão</label>
@@ -100,6 +101,6 @@
 </div>
 
 <script src="config.js?v=20260716-4"></script>
-<script src="admin.js?v=20260716-4"></script>
+<script src="admin.js?v=20260716-5"></script>
 </body>
 </html>

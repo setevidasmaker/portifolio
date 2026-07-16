@@ -3,6 +3,7 @@
     "id": "marcador-pagina-gato",
     "name": "Marcador de Página Gato Olhudo",
     "category": "outros",
+    "categories": ["infantil", "outros"],
     "material": "ABS",
     "color": "Preto",
     "printTime": "Sob encomenda",
