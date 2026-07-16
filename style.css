@@ -53,7 +53,7 @@ nav a:not(.nav-cta):hover { color: var(--wine); }
 .button-primary:hover { background: var(--wine-bright); }
 .button-secondary { background: transparent; border: 1px solid var(--line); }
 .button-secondary:hover { background: var(--white); }
-.hero-proof { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 42px; max-width: 580px; }
+.hero-proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 42px; max-width: 660px; }
 .hero-proof div { padding-left: 14px; border-left: 2px solid var(--gold); }
 .hero-proof strong, .hero-proof span { display: block; }
 .hero-proof strong { font-family: var(--display); font-size: 15px; }
@@ -154,6 +154,8 @@ footer { background: var(--ink); color: var(--white); padding: 44px 0; }
 .detail-specs strong { margin-top: 5px; font-family: var(--display); font-size: 16px; }
 .detail-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 32px; }
 .detail-tags .tag { padding: 7px 11px; font-size: 11px; }
+.filament-note { margin: 0 0 28px; padding: 16px 18px; color: var(--muted); background: var(--paper-deep); border-radius: 14px; font-size: 13px; }
+.filament-note strong { color: var(--ink); }
 .detail-actions { display: grid; gap: 11px; }
 .detail-actions .button { width: 100%; }
 .shooting-note { margin: 28px 0 0; padding: 18px 20px; border-left: 3px solid var(--gold); background: var(--paper-deep); color: var(--muted); font-size: 13px; border-radius: 0 12px 12px 0; }
