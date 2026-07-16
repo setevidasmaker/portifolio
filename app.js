@@ -23,7 +23,8 @@
   SITE_CONFIG.categories.forEach((c) => (categoryMap[c.id] = c));
 
   let allProducts = [];
-  let activeFilter = "infantil";
+  const requestedFilter = new URLSearchParams(window.location.search).get("categoria");
+  let activeFilter = requestedFilter || "infantil";
 
   function catColor(catId) {
     return (categoryMap[catId] && categoryMap[catId].color) || "#8478AC";
@@ -84,7 +85,7 @@
           </div>
           <p class="card-desc">${p.description || ""}</p>
           ${p.tags && p.tags.length ? `<div class="card-tags">${p.tags.map((t) => `<span class="tag">${t}</span>`).join("")}</div>` : ""}
-          <a class="product-link" href="${whatsappBase}?text=${encodeURIComponent(`Olá! Gostaria de saber mais sobre ${p.name}.`)}" target="_blank" rel="noopener">Pedir orçamento <span aria-hidden="true">↗</span></a>
+          <a class="product-link" href="produto.html?id=${encodeURIComponent(p.id)}">Ver detalhes <span aria-hidden="true">→</span></a>
         </div>
       `;
       grid.appendChild(card);
@@ -95,6 +96,8 @@
     .then((r) => r.json())
     .then((data) => {
       allProducts = data;
+      const validFilters = new Set(["all", ...allProducts.map((product) => product.category)]);
+      if (!validFilters.has(activeFilter)) activeFilter = "infantil";
       renderFilters();
       renderGrid();
     })

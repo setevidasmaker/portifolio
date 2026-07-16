@@ -24,7 +24,7 @@
   {
     "id": "organizador-cabos-mesa",
     "name": "Kit Organizador de Cabos para Mesa",
-    "category": "organizacao",
+    "category": "escritorio",
     "material": "ABS",
     "color": "Preto",
     "printTime": "Sob encomenda",
@@ -35,7 +35,7 @@
   {
     "id": "estojo-municao-9mm",
     "name": "Estojo Organizador para Munição 9 mm",
-    "category": "organizacao",
+    "category": "tiro-esportivo",
     "material": "ABS",
     "color": "Preto",
     "printTime": "Sob encomenda",
@@ -46,7 +46,7 @@
   {
     "id": "estojo-municao-personalizado",
     "name": "Estojo para Munição Personalizado",
-    "category": "organizacao",
+    "category": "tiro-esportivo",
     "material": "ABS",
     "color": "Personalizável",
     "printTime": "Sob encomenda",
@@ -68,7 +68,7 @@
   {
     "id": "separador-cabos-usb",
     "name": "Separador de Cabos USB",
-    "category": "organizacao",
+    "category": "escritorio",
     "material": "ABS",
     "color": "Preto",
     "printTime": "Sob encomenda",
