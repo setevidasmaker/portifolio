@@ -11,6 +11,10 @@
     return categories.length ? categories : ["outros"];
   }
 
+  function isChildAbsProduct(product) {
+    return productCategories(product).includes("infantil") && /\bABS\b/i.test(product.material || "");
+  }
+
   document.getElementById("detail-brand-name").textContent = SITE_CONFIG.siteName;
   document.getElementById("detail-instagram").href = contact.instagram || "https://www.instagram.com/setevidasmaker/";
 
@@ -103,6 +107,7 @@
               <div><span>Produção</span><strong>${product.printTime || "Sob encomenda"}</strong></div>
             </div>
             ${product.tags && product.tags.length ? `<div class="detail-tags">${product.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>` : ""}
+            ${isChildAbsProduct(product) ? `<p class="child-safety-note child-safety-note-detail"><strong>Atenção:</strong> peça fabricada em ABS, material derivado do petróleo. Não levar à boca. Recomenda-se o uso sob supervisão de um adulto.</p>` : ""}
             <p class="filament-note"><strong>Materiais disponíveis:</strong> trabalhamos com PLA, PETG e ABS. Consulte a disponibilidade de cores e filamentos para o seu pedido.</p>
             <div class="detail-actions">
               <a class="button button-primary js-detail-whatsapp" href="${whatsappBase}?text=${encodeURIComponent(`Olá! Vi o produto ${product.name} no site e gostaria de pedir um orçamento.`)}" target="_blank" rel="noopener">Pedir orçamento pelo WhatsApp <span aria-hidden="true">↗</span></a>

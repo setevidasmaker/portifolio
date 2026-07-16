@@ -43,6 +43,10 @@
     return categories.length ? categories : ["outros"];
   }
 
+  function isChildAbsProduct(product) {
+    return productCategories(product).includes("infantil") && /\bABS\b/i.test(product.material || "");
+  }
+
   function renderFilters() {
     const availableCategories = SITE_CONFIG.categories.filter((category) =>
       allProducts.some((product) => productCategories(product).includes(category.id))
@@ -97,6 +101,7 @@
             ${p.printTime ? `<span><b>Impressão</b> ${p.printTime}</span>` : ""}
           </div>
           <p class="card-desc">${p.description || ""}</p>
+          ${isChildAbsProduct(p) ? `<p class="child-safety-note"><strong>Atenção:</strong> peça em ABS, material derivado do petróleo. Não levar à boca e utilizar sob supervisão de um adulto.</p>` : ""}
           ${p.tags && p.tags.length ? `<div class="card-tags">${p.tags.map((t) => `<span class="tag">${t}</span>`).join("")}</div>` : ""}
           <a class="product-link" href="produto.html?id=${encodeURIComponent(p.id)}">Ver detalhes <span aria-hidden="true">→</span></a>
         </div>
