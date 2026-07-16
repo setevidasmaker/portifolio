@@ -1,10 +1,23 @@
 (function () {
-  const grid = document.getElementById("produtos");
+  const grid = document.getElementById("produtos-grid");
   const filtersEl = document.getElementById("filters");
   document.getElementById("brand-name").textContent = SITE_CONFIG.siteName;
   document.getElementById("brand-name-2").textContent = SITE_CONFIG.siteName;
   document.getElementById("tagline").textContent = SITE_CONFIG.tagline;
   document.title = SITE_CONFIG.siteName + " — Portfólio";
+
+  const contact = SITE_CONFIG.contact || {};
+  const whatsappBase = `https://wa.me/${contact.whatsapp || "5518981315272"}`;
+  document.querySelectorAll(".js-whatsapp").forEach((link) => {
+    link.href = `${whatsappBase}?text=${encodeURIComponent("Olá! Conheci a Sete Vidas Maker pelo site e gostaria de pedir um orçamento.")}`;
+    link.target = "_blank";
+    link.rel = "noopener";
+  });
+  document.querySelectorAll(".js-instagram").forEach((link) => {
+    link.href = contact.instagram || "https://www.instagram.com/setevidasmaker/";
+  });
+  const phoneEl = document.querySelector(".contact-phone");
+  if (phoneEl) phoneEl.textContent = contact.phoneDisplay || "(18) 98131-5272";
 
   const categoryMap = {};
   SITE_CONFIG.categories.forEach((c) => (categoryMap[c.id] = c));
@@ -57,7 +70,7 @@
       card.innerHTML = `
         <div class="card-image-wrap">
           <span class="cat-chip">${catLabel(p.category)}</span>
-          <img src="${p.image || "images/placeholder-" + p.category + ".svg"}" alt="${p.name}" loading="lazy">
+          <img src="${p.image || "images/logo-mark.png"}" alt="${p.name}" loading="lazy">
         </div>
         <div class="card-body">
           <h3>${p.name}</h3>
@@ -68,6 +81,7 @@
           </div>
           <p class="card-desc">${p.description || ""}</p>
           ${p.tags && p.tags.length ? `<div class="card-tags">${p.tags.map((t) => `<span class="tag">${t}</span>`).join("")}</div>` : ""}
+          <a class="product-link" href="${whatsappBase}?text=${encodeURIComponent(`Olá! Gostaria de saber mais sobre ${p.name}.`)}" target="_blank" rel="noopener">Pedir orçamento <span aria-hidden="true">↗</span></a>
         </div>
       `;
       grid.appendChild(card);

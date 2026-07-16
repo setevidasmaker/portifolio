@@ -2,7 +2,7 @@
   {
     "id": "exemplo-deckbox-1",
     "name": "Deckbox Modular 100+",
-    "category": "deckbox",
+    "category": "jogos",
     "material": "PETG",
     "color": "Preto fosco",
     "printTime": "4h30",
@@ -13,7 +13,7 @@
   {
     "id": "exemplo-marcador-1",
     "name": "Marcador de Dano/Status (kit 10)",
-    "category": "marcador",
+    "category": "jogos",
     "material": "PLA",
     "color": "Vermelho + Verde",
     "printTime": "1h15",
@@ -24,7 +24,7 @@
   {
     "id": "exemplo-organizador-1",
     "name": "Organizador de Cabos Modular",
-    "category": "organizador",
+    "category": "organizacao",
     "material": "PETG",
     "color": "Cinza",
     "printTime": "2h",
@@ -35,7 +35,7 @@
   {
     "id": "teste-contador-vida-7",
     "name": "Contador de Vida 7",
-    "category": "marcador",
+    "category": "jogos",
     "material": "PLA",
     "color": "Vinho + Preto",
     "printTime": "45min",

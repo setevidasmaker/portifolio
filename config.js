@@ -4,7 +4,13 @@
 const SITE_CONFIG = {
   // Nome que aparece no topo do site.
   siteName: "Sete Vidas Maker",
-  tagline: "Impressão 3D funcional pra jogos e board games — porque sempre dá pra imprimir mais uma vida",
+  tagline: "Impressão 3D para jogos, organização, presentes e projetos personalizados — do desenho à peça pronta.",
+
+  contact: {
+    phoneDisplay: "(18) 98131-5272",
+    whatsapp: "5518981315272",
+    instagram: "https://www.instagram.com/setevidasmaker/",
+  },
 
   // Dados do repositório GitHub onde este site vai morar.
   // Depois de criar o repo no GitHub, preencha aqui:
@@ -16,9 +22,11 @@ const SITE_CONFIG = {
 
   // Categorias de produto. Cada uma tem uma cor de destaque (estilo "cor de carta").
   categories: [
-    { id: "deckbox", label: "Deckbox", color: "#8B1E2E" },
-    { id: "marcador", label: "Marcador", color: "#6E7075" },
-    { id: "organizador", label: "Organizador", color: "#C9A227" },
-    { id: "acessorio", label: "Acessório", color: "#B23347" },
+    { id: "jogos", label: "TCG & Jogos", color: "#8D0F20" },
+    { id: "chaveiros", label: "Chaveiros", color: "#2A2525" },
+    { id: "decoracao", label: "Decoração", color: "#A35D31" },
+    { id: "organizacao", label: "Organização", color: "#C89F43" },
+    { id: "infantil", label: "Infantil", color: "#5B7685" },
+    { id: "outros", label: "Outros", color: "#6F6863" },
   ],
 };

@@ -1,51 +1,125 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sete Vidas Maker — Portfólio</title>
-<link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Peças em impressão 3D feitas sob encomenda pela Sete Vidas Maker.">
+  <meta name="theme-color" content="#151313">
+  <title>Sete Vidas Maker — Impressão 3D sob encomenda</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="wrap">
-  <header class="topbar">
-    <div class="brand"><img src="images/logo-mark.png" alt=""><span id="brand-name">Sete Vidas Maker</span></div>
-    <nav>
-      <a href="#produtos">Produtos</a>
-      <a href="#contato">Contato</a>
-    </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Sete Vidas Maker — início">
+        <span class="brand-mark"><img src="images/logo-mark.png" alt=""></span>
+        <span class="brand-copy"><strong id="brand-name">Sete Vidas Maker</strong><small>Impressão 3D</small></span>
+      </a>
+      <nav aria-label="Navegação principal">
+        <a href="#produtos">Produtos</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a class="nav-cta js-whatsapp" href="#contato">Fazer orçamento</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <div>
-      <h1>Peças pra <span class="hl">deixar sua mesa</span> pronta pro próximo turno.</h1>
-      <p id="tagline">Impressão 3D funcional pra jogos e board games — porque sempre dá pra imprimir mais uma vida.</p>
-      <div class="hero-badges">
-        <span class="badge">FDM</span>
-        <span class="badge">PLA / PETG</span>
-        <span class="badge">Sob encomenda</span>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Peças únicas, feitas camada por camada</p>
+          <h1>Suas ideias ganham <em>forma.</em></h1>
+          <p class="hero-lead" id="tagline">Impressão 3D para jogos, organização, presentes e projetos personalizados — do desenho à peça pronta.</p>
+          <div class="hero-actions">
+            <a class="button button-primary js-whatsapp" href="#contato">Pedir um orçamento <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="#produtos">Conhecer os produtos</a>
+          </div>
+          <div class="hero-proof" aria-label="Diferenciais">
+            <div><strong>Sob medida</strong><span>Personalização de cor e tamanho</span></div>
+            <div><strong>Contato direto</strong><span>Você acompanha cada etapa</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Marca Sete Vidas Maker">
+          <div class="logo-stage">
+            <span class="stage-label">SETИ V1DAS / 3D LAB</span>
+            <img src="images/logo.png" alt="Logo Sete Vidas Maker">
+            <span class="stage-line"></span>
+          </div>
+          <div class="floating-note note-one"><b>01</b><span>Ideia</span></div>
+          <div class="floating-note note-two"><b>02</b><span>Impressão</span></div>
+          <div class="floating-note note-three"><b>03</b><span>Peça pronta</span></div>
+        </div>
       </div>
+    </section>
+
+    <section class="highlights" aria-label="Tipos de trabalho">
+      <div class="container highlight-grid">
+        <div><span class="highlight-number">01</span><p><strong>Projetos personalizados</strong>Adaptamos a ideia ao seu uso.</p></div>
+        <div><span class="highlight-number">02</span><p><strong>Variedade de peças</strong>Do TCG à organização da casa.</p></div>
+        <div><span class="highlight-number">03</span><p><strong>Produção artesanal</strong>Cuidado em cada acabamento.</p></div>
+      </div>
+    </section>
+
+    <section class="products-section" id="produtos">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> Portfólio</p>
+            <h2>Peças que já saíram da máquina.</h2>
+          </div>
+          <p>Explore alguns trabalhos. Gostou de uma peça ou quer adaptar uma ideia? É só chamar.</p>
+        </div>
+        <div id="filters" class="filters" aria-label="Filtrar produtos"></div>
+        <div id="produtos-grid" class="grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="process-section" id="como-funciona">
+      <div class="container process-grid">
+        <div class="process-intro">
+          <p class="eyebrow eyebrow-light"><span></span> Do pedido à entrega</p>
+          <h2>Simples para você.<br>Feito com cuidado por nós.</h2>
+          <p>Não precisa entender de modelagem ou impressão 3D. Conte o que você precisa e a gente encontra a melhor forma de produzir.</p>
+          <a class="text-link js-whatsapp" href="#contato">Conversar sobre uma ideia <span>↗</span></a>
+        </div>
+        <ol class="process-list">
+          <li><span>01</span><div><strong>Conte sua ideia</strong><p>Envie uma referência, medida ou apenas explique o problema que quer resolver.</p></div></li>
+          <li><span>02</span><div><strong>Definimos os detalhes</strong><p>Alinhamos modelo, tamanho, cor, material, prazo e valor.</p></div></li>
+          <li><span>03</span><div><strong>Sua peça ganha forma</strong><p>Produzimos, revisamos o acabamento e combinamos a entrega.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contato">
+      <div class="container contact-card">
+        <div>
+          <p class="eyebrow"><span></span> Vamos criar?</p>
+          <h2>Tem uma ideia em mente?</h2>
+          <p>Fale diretamente com a Sete Vidas Maker e peça seu orçamento sem compromisso.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-primary js-whatsapp" href="#">WhatsApp <span aria-hidden="true">↗</span></a>
+          <a class="button button-secondary js-instagram" href="#" target="_blank" rel="noopener">Instagram <span aria-hidden="true">↗</span></a>
+          <small class="contact-phone">(18) 98131-5272</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand footer-brand" href="#inicio">
+        <span class="brand-mark"><img src="images/logo-mark.png" alt=""></span>
+        <span class="brand-copy"><strong id="brand-name-2">Sete Vidas Maker</strong><small>Feito camada por camada</small></span>
+      </a>
+      <p>Impressão 3D sob encomenda · Presidente Prudente e região</p>
+      <div class="footer-links"><a class="js-instagram" href="#" target="_blank" rel="noopener">Instagram</a><a class="js-whatsapp" href="#">WhatsApp</a></div>
     </div>
-    <div class="hero-card">
-      <div class="hc-label">// ficha técnica</div>
-      <h3>Cada peça, catalogada</h3>
-      <p>Material, cor e tempo de impressão de cada item, igual ficha de carta — pra você saber exatamente o que está levando.</p>
-    </div>
-  </section>
-
-  <div id="filters" class="filters"></div>
-
-  <section id="produtos" class="grid" aria-live="polite"></section>
-
-  <footer id="contato">
-    <span>Feito à mão, camada por camada — <span id="brand-name-2">Sete Vidas Maker</span></span>
-    <span>Sua cidade · seu.email@exemplo.com</span>
   </footer>
-</div>
 
-<script src="config.js"></script>
-<script src="app.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

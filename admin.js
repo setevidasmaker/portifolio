@@ -179,7 +179,7 @@
       const row = document.createElement("div");
       row.className = "admin-list-item";
       row.innerHTML = `
-        <img src="${p.image || "images/placeholder-" + p.category + ".svg"}" alt="">
+        <img src="${p.image || "images/logo-mark.png"}" alt="">
         <div class="info">
           <strong>${p.name}</strong>
           <span>${p.category} · ${p.material || "—"} · ${p.printTime || "—"}</span>
@@ -250,7 +250,7 @@
         printTime: $("p-printtime").value.trim(),
         description: $("p-desc").value.trim(),
         tags: $("p-tags").value.split(",").map((t) => t.trim()).filter(Boolean),
-        image: imagePath || `images/placeholder-${categorySelect.value}.svg`,
+        image: imagePath || "images/logo-mark.png",
       };
 
       showStatus(saveStatus, "Gravando no repositório...", "busy");
