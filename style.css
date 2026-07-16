@@ -125,6 +125,9 @@ nav a:not(.nav-cta):hover { color: var(--wine); }
 .contact-card h2 { margin: 0; font-size: clamp(36px, 5vw, 58px); line-height: 1; }
 .contact-card p:not(.eyebrow) { margin: 14px 0 0; color: var(--muted); }
 .contact-actions { display: grid; gap: 10px; min-width: 250px; }
+.social-button { display: grid; grid-template-columns: 20px 1fr 20px; gap: 12px; }
+.social-icon { width: 20px; height: 20px; display: block; }
+.button-primary .social-icon { filter: brightness(0) invert(1); }
 .contact-phone, .contact-location { text-align: center; color: var(--muted); }
 .contact-phone { margin-top: 3px; }
 .contact-location { font-weight: 700; }
