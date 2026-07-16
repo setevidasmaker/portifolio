@@ -31,7 +31,7 @@
       <div class="product-not-found">
         <h1>Produto não encontrado</h1>
         <p>Este item pode ter sido removido ou o endereço está incompleto.</p>
-        <a class="button button-primary" href="index.html#produtos">Ver catálogo</a>
+        <a class="button button-primary" href="./#produtos">Ver catálogo</a>
       </div>`;
   }
 
@@ -65,7 +65,7 @@
       const productCategoryIds = productCategories(product);
       const primaryCategoryId = product.category || productCategoryIds[0];
       const primaryCategory = categoryMap[primaryCategoryId] || { label: primaryCategoryId, color: "#171515" };
-      const categoryUrl = `index.html?categoria=${encodeURIComponent(primaryCategoryId)}#produtos`;
+      const categoryUrl = `./?categoria=${encodeURIComponent(primaryCategoryId)}#produtos`;
       const galleryImages = [product.image, ...(product.images || [])].filter((image, index, items) => image && items.indexOf(image) === index);
       const shootingNote = productCategoryIds.includes("tiro-esportivo")
         ? `<p class="shooting-note">Produto destinado exclusivamente à organização e ao armazenamento. Munições não acompanham o produto. Utilize sempre de acordo com a legislação vigente.</p>`
@@ -92,7 +92,7 @@
             <div class="detail-categories">
               ${productCategoryIds.map((categoryId) => {
                 const category = categoryMap[categoryId] || { label: categoryId, color: "#171515" };
-                return `<a class="detail-category" href="index.html?categoria=${encodeURIComponent(categoryId)}#produtos" style="background:${category.color}">${category.label}</a>`;
+                return `<a class="detail-category" href="./?categoria=${encodeURIComponent(categoryId)}#produtos" style="background:${category.color}">${category.label}</a>`;
               }).join("")}
             </div>
             <h1>${product.name}</h1>

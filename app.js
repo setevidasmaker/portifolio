@@ -1,4 +1,9 @@
 (function () {
+  if (window.location.pathname.endsWith("/index.html")) {
+    const cleanPath = window.location.pathname.slice(0, -"index.html".length);
+    window.history.replaceState(null, "", cleanPath + window.location.search + window.location.hash);
+  }
+
   const grid = document.getElementById("produtos-grid");
   const filtersEl = document.getElementById("filters");
   document.getElementById("brand-name").textContent = SITE_CONFIG.siteName;
