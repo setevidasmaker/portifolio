@@ -33,7 +33,10 @@
   }
 
   function renderFilters() {
-    const buttons = [{ id: "all", label: "Todos" }, ...SITE_CONFIG.categories.map((c) => ({ id: c.id, label: c.label }))];
+    const availableCategories = SITE_CONFIG.categories.filter((category) =>
+      allProducts.some((product) => product.category === category.id)
+    );
+    const buttons = [{ id: "all", label: "Todos" }, ...availableCategories.map((c) => ({ id: c.id, label: c.label }))];
     filtersEl.innerHTML = "";
     buttons.forEach((b) => {
       const btn = document.createElement("button");
