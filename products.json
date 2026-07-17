@@ -1,5 +1,20 @@
 [
   {
+    "id": "kit-colorir-capivaras",
+    "name": "Kit de Pintura Infantil — 4 Capivaras + 3 Canetas",
+    "category": "infantil",
+    "material": "ABS",
+    "color": "Capivaras brancas e canetas sortidas",
+    "printTime": "Sob encomenda",
+    "description": "Kit criativo com quatro capivaras em modelos diferentes, prontas para colorir, e três canetas de cores sortidas.",
+    "tags": ["kit para colorir", "4 capivaras", "3 canetas", "atividade infantil"],
+    "image": "images/products/kit-colorir-capivaras.jpg",
+    "images": [
+      "images/products/gallery/kit-colorir-capivaras/01.jpg",
+      "images/products/gallery/kit-colorir-capivaras/02.jpg"
+    ]
+  },
+  {
     "id": "marcador-pagina-gato",
     "name": "Marcador de Página Gato Olhudo",
     "category": "outros",
