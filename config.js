@@ -4,7 +4,7 @@
 const SITE_CONFIG = {
   // Nome que aparece no topo do site.
   siteName: "Sete Vidas Maker",
-  tagline: "Impressão 3D para jogos, organização, presentes e projetos personalizados — do desenho à peça pronta.",
+  tagline: "Criamos peças personalizadas para organizar, presentear, jogar e resolver necessidades do dia a dia. Você envia a referência; nós cuidamos do projeto e da impressão.",
 
   contact: {
     phoneDisplay: "(18) 98131-5272",

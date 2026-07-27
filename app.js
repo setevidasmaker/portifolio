@@ -7,10 +7,11 @@
   const grid = document.getElementById("produtos-grid");
   const filtersEl = document.getElementById("filters");
   const filtersStatusEl = document.getElementById("filters-status");
+  grid.setAttribute("aria-busy", "true");
   document.getElementById("brand-name").textContent = SITE_CONFIG.siteName;
   document.getElementById("brand-name-2").textContent = SITE_CONFIG.siteName;
   document.getElementById("tagline").textContent = SITE_CONFIG.tagline;
-  document.title = SITE_CONFIG.siteName + " — Portfólio";
+  document.title = SITE_CONFIG.siteName + " — Impressão 3D sob medida em Birigui";
 
   const contact = SITE_CONFIG.contact || {};
   const whatsappBase = `https://wa.me/${contact.whatsapp || "5518981315272"}`;
@@ -27,6 +28,23 @@
 
   const categoryMap = {};
   SITE_CONFIG.categories.forEach((c) => (categoryMap[c.id] = c));
+
+  function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (character) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;",
+    })[character]);
+  }
+
+  function whatsappHref(productName) {
+    const message = productName
+      ? `Olá! Vi o produto ${productName} no site e gostaria de pedir um orçamento.`
+      : "Olá! Conheci a Sete Vidas Maker pelo site e gostaria de pedir um orçamento.";
+    return `${whatsappBase}?text=${encodeURIComponent(message)}`;
+  }
 
   let allProducts = [];
   const requestedFilter = new URLSearchParams(window.location.search).get("categoria");
@@ -79,9 +97,11 @@
     if (items.length === 0) {
       grid.innerHTML = `
         <div class="empty-state" style="grid-column: 1 / -1;">
-          <h3>Nenhuma peça catalogada ainda</h3>
-          <p>Bora imprimir a primeira e cadastrar pelo painel de admin?</p>
+          <h3>Ainda não há uma peça nessa categoria</h3>
+          <p>Isso não significa que sua ideia não possa ser produzida. Conte o que você precisa e avaliamos juntos.</p>
+          <a class="button button-primary" href="${whatsappHref()}" target="_blank" rel="noopener">Conversar pelo WhatsApp</a>
         </div>`;
+      grid.setAttribute("aria-busy", "false");
       return;
     }
 
@@ -95,29 +115,38 @@
       card.style.setProperty("--cat-color", catColor(displayCategory));
       card.style.animationDelay = (i * 0.04) + "s";
 
+      const productName = escapeHtml(p.name);
+      const productUrl = `produto.html?id=${encodeURIComponent(p.id)}`;
       card.innerHTML = `
         <div class="card-image-wrap">
-          <span class="cat-chip">${catLabel(displayCategory)}</span>
-          <img src="${p.image || "images/logo-mark.png"}" alt="${p.name}" loading="lazy">
+          <span class="cat-chip">${escapeHtml(catLabel(displayCategory))}</span>
+          <img src="${escapeHtml(p.image || "images/logo-mark.png")}" alt="${productName}" loading="lazy" decoding="async">
         </div>
         <div class="card-body">
-          <h3>${p.name}</h3>
+          <h3>${productName}</h3>
           <div class="card-stats">
-            ${p.material ? `<span><b>Material</b> ${p.material}</span>` : ""}
-            ${p.color ? `<span><b>Cor</b> ${p.color}</span>` : ""}
-            ${p.printTime ? `<span><b>Impressão</b> ${p.printTime}</span>` : ""}
+            ${p.material ? `<span><b>Material</b> ${escapeHtml(p.material)}</span>` : ""}
+            ${p.color ? `<span><b>Cor</b> ${escapeHtml(p.color)}</span>` : ""}
+            ${p.printTime ? `<span><b>Produção</b> ${escapeHtml(p.printTime)}</span>` : ""}
           </div>
-          <p class="card-desc">${p.description || ""}</p>
-          ${p.tags && p.tags.length ? `<div class="card-tags">${p.tags.map((t) => `<span class="tag">${t}</span>`).join("")}</div>` : ""}
-          <a class="product-link" href="produto.html?id=${encodeURIComponent(p.id)}">Ver detalhes <span aria-hidden="true">→</span></a>
+          <p class="card-desc">${escapeHtml(p.description || "")}</p>
+          ${p.tags && p.tags.length ? `<div class="card-tags">${p.tags.map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>` : ""}
+          <div class="card-actions">
+            <a class="product-link" href="${productUrl}">Ver detalhes <span aria-hidden="true">→</span></a>
+            <a class="card-whatsapp" href="${whatsappHref(p.name)}" target="_blank" rel="noopener" aria-label="Pedir orçamento de ${productName}">Pedir orçamento</a>
+          </div>
         </div>
       `;
       grid.appendChild(card);
     });
+    grid.setAttribute("aria-busy", "false");
   }
 
-  fetch("products.json?_=" + Date.now())
-    .then((r) => r.json())
+  fetch("products.json", { cache: "no-cache" })
+    .then((response) => {
+      if (!response.ok) throw new Error("Falha ao carregar catálogo");
+      return response.json();
+    })
     .then((data) => {
       allProducts = data;
       const validFilters = new Set(["all", ...allProducts.flatMap(productCategories)]);
@@ -126,10 +155,12 @@
       renderGrid();
     })
     .catch(() => {
+      grid.setAttribute("aria-busy", "false");
       grid.innerHTML = `
         <div class="empty-state" style="grid-column: 1 / -1;">
-          <h3>Não consegui carregar os produtos</h3>
-          <p>Confira se o arquivo products.json existe no repositório.</p>
+          <h3>O catálogo não carregou agora</h3>
+          <p>Atualize a página em alguns instantes ou fale diretamente conosco.</p>
+          <a class="button button-primary" href="${whatsappHref()}" target="_blank" rel="noopener">Conversar pelo WhatsApp</a>
         </div>`;
     });
 })();

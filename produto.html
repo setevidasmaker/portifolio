@@ -3,17 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Detalhes do produto Sete Vidas Maker.">
+  <meta name="description" content="Conheça este produto feito sob encomenda pela Sete Vidas Maker em Birigui, SP. Consulte materiais, cores e peça um orçamento.">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#151313">
+  <meta property="og:type" content="product">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Sete Vidas Maker">
+  <meta property="og:title" content="Produto — Sete Vidas Maker">
+  <meta property="og:description" content="Peça em impressão 3D feita sob encomenda pela Sete Vidas Maker.">
+  <meta property="og:image" content="https://setevidasmaker.github.io/portifolio/images/og-sete-vidas.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link id="canonical-url" rel="canonical" href="https://setevidasmaker.github.io/portifolio/produto.html">
   <title>Produto — Sete Vidas Maker</title>
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="stylesheet" href="style.css?v=20260716-9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20260727-2">
+  <script src="config.js?v=20260727-1" defer></script>
+  <script src="produto.js?v=20260727-2" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="./" aria-label="Sete Vidas Maker — início">
-        <span class="brand-mark"><img src="images/logo-mark.png" alt=""></span>
+        <span class="brand-mark"><img src="images/logo-mark.png" alt="" width="954" height="700" decoding="async"></span>
         <span class="brand-copy"><strong id="detail-brand-name">Sete Vidas Maker</strong><small>Impressão 3D</small></span>
       </a>
       <nav aria-label="Navegação principal">
@@ -23,10 +38,10 @@
     </div>
   </header>
 
-  <main class="product-page-main">
+  <main class="product-page-main" id="conteudo">
     <div class="container">
       <a class="back-link" href="./#produtos"><span aria-hidden="true">←</span> Voltar ao catálogo</a>
-      <div id="product-detail" aria-live="polite">
+      <div id="product-detail" aria-live="polite" aria-busy="true">
         <div class="product-not-found"><p>Carregando produto...</p></div>
       </div>
     </div>
@@ -35,7 +50,7 @@
   <footer>
     <div class="container footer-inner">
       <a class="brand footer-brand" href="./">
-        <span class="brand-mark"><img src="images/logo-mark.png" alt=""></span>
+        <span class="brand-mark"><img src="images/logo-mark.png" alt="" width="954" height="700" loading="lazy" decoding="async"></span>
         <span class="brand-copy"><strong>Sete Vidas Maker</strong><small>Feito camada por camada</small></span>
       </a>
       <p>Impressão 3D sob encomenda · Birigui — SP, Brasil</p>
@@ -43,7 +58,5 @@
     </div>
   </footer>
 
-  <script src="config.js?v=20260716-5"></script>
-  <script src="produto.js?v=20260716-8"></script>
 </body>
 </html>

@@ -6,13 +6,16 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Admin — Cadastro de produtos</title>
 <link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="stylesheet" href="style.css?v=20260716-9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20260727-2">
 </head>
 <body>
 
 <div class="admin-shell">
   <header class="topbar" style="padding-top:0;">
-    <div class="brand"><img src="images/logo-mark.png" alt="">Admin</div>
+    <div class="brand"><img src="images/logo-mark.png" alt="" width="954" height="700" decoding="async">Admin</div>
     <nav><a href="./">← Ver site</a></nav>
   </header>
 
@@ -87,6 +90,7 @@
     <div class="field">
       <label for="p-image">Foto (opcional — sem foto usa a marca como placeholder)</label>
       <input type="file" id="p-image" accept="image/*">
+      <small class="field-help">A foto é redimensionada e otimizada automaticamente antes do envio para manter o site rápido.</small>
     </div>
 
     <button class="btn btn-primary" id="save-btn">Salvar produto</button>
@@ -101,6 +105,6 @@
 </div>
 
 <script src="config.js?v=20260716-5"></script>
-<script src="admin.js?v=20260716-5"></script>
+<script src="admin.js?v=20260727-1"></script>
 </body>
 </html>

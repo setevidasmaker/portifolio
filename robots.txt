@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+
+Sitemap: https://setevidasmaker.github.io/portifolio/sitemap.xml

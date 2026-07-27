@@ -5,6 +5,21 @@
   const whatsappBase = `https://wa.me/${contact.whatsapp || "5518981315272"}`;
   const categoryMap = Object.fromEntries(SITE_CONFIG.categories.map((category) => [category.id, category]));
 
+  function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (character) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;",
+    })[character]);
+  }
+
+  function setMeta(selector, value) {
+    const element = document.querySelector(selector);
+    if (element) element.setAttribute("content", value);
+  }
+
   function productCategories(product) {
     const categories = Array.isArray(product.categories) ? product.categories.filter(Boolean) : [];
     if (product.category && !categories.includes(product.category)) categories.unshift(product.category);
@@ -31,6 +46,7 @@
 
   function renderNotFound() {
     setWhatsappLinks();
+    detail.setAttribute("aria-busy", "false");
     detail.innerHTML = `
       <div class="product-not-found">
         <h1>Produto não encontrado</h1>
@@ -57,7 +73,7 @@
     });
   }
 
-  fetch("products.json?_=" + Date.now())
+  fetch("products.json", { cache: "no-cache" })
     .then((response) => {
       if (!response.ok) throw new Error("Falha ao carregar catálogo");
       return response.json();
@@ -76,18 +92,39 @@
         : "";
 
       document.title = `${product.name} — ${SITE_CONFIG.siteName}`;
+      const metaDescription = `${product.description || "Peça produzida sob encomenda."} Consulte materiais, cores e peça um orçamento.`;
+      const canonicalUrl = new URL("produto.html", window.location.href);
+      canonicalUrl.searchParams.set("id", product.id);
+      const productImageUrl = new URL(galleryImages[0] || "images/logo.png", window.location.href).href;
+      document.querySelector('meta[name="description"]').setAttribute("content", metaDescription);
+      document.getElementById("canonical-url").href = canonicalUrl.href;
+      setMeta('meta[property="og:title"]', `${product.name} — ${SITE_CONFIG.siteName}`);
+      setMeta('meta[property="og:description"]', metaDescription);
+      setMeta('meta[property="og:image"]', productImageUrl);
+      const productSchema = document.createElement("script");
+      productSchema.type = "application/ld+json";
+      productSchema.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: product.name,
+        description: product.description || "Peça produzida sob encomenda pela Sete Vidas Maker.",
+        image: galleryImages.map((image) => new URL(image, window.location.href).href),
+        material: product.material || undefined,
+        brand: { "@type": "Brand", name: SITE_CONFIG.siteName },
+      });
+      document.head.appendChild(productSchema);
       setWhatsappLinks(product.name);
       detail.innerHTML = `
         <article class="product-detail">
           <div class="product-detail-gallery">
             <div class="product-detail-media">
-              <img id="product-main-image" src="${galleryImages[0] || "images/logo-mark.png"}" alt="${product.name} — foto 1">
+              <img id="product-main-image" src="${escapeHtml(galleryImages[0] || "images/logo-mark.png")}" alt="${escapeHtml(product.name)} — foto 1" fetchpriority="high" decoding="async">
             </div>
             ${galleryImages.length > 1 ? `
               <div class="gallery-thumbnails" aria-label="Fotos do produto">
                 ${galleryImages.map((image, index) => `
-                  <button class="gallery-thumbnail${index === 0 ? " is-active" : ""}" type="button" data-image="${image}" data-index="${index}" aria-label="Ver foto ${index + 1} de ${galleryImages.length}" aria-pressed="${index === 0}">
-                    <img src="${image}" alt="" loading="lazy">
+                  <button class="gallery-thumbnail${index === 0 ? " is-active" : ""}" type="button" data-image="${escapeHtml(image)}" data-index="${index}" aria-label="Ver foto ${index + 1} de ${galleryImages.length}" aria-pressed="${index === 0}">
+                    <img src="${escapeHtml(image)}" alt="" loading="lazy" decoding="async">
                   </button>`).join("")}
               </div>
               <p class="gallery-hint">Selecione uma miniatura para ampliar</p>` : ""}
@@ -96,26 +133,27 @@
             <div class="detail-categories">
               ${productCategoryIds.map((categoryId) => {
                 const category = categoryMap[categoryId] || { label: categoryId, color: "#171515" };
-                return `<a class="detail-category" href="./?categoria=${encodeURIComponent(categoryId)}#produtos" style="background:${category.color}">${category.label}</a>`;
+                return `<a class="detail-category" href="./?categoria=${encodeURIComponent(categoryId)}#produtos" style="background:${escapeHtml(category.color)}">${escapeHtml(category.label)}</a>`;
               }).join("")}
             </div>
-            <h1>${product.name}</h1>
-            <p class="detail-description">${product.description || "Peça produzida sob encomenda pela Sete Vidas Maker."}</p>
+            <h1>${escapeHtml(product.name)}</h1>
+            <p class="detail-description">${escapeHtml(product.description || "Peça produzida sob encomenda pela Sete Vidas Maker.")}</p>
             <div class="detail-specs">
-              <div><span>Material</span><strong>${product.material || "ABS"}</strong></div>
-              <div><span>Cor</span><strong>${product.color || "Sob consulta"}</strong></div>
-              <div><span>Produção</span><strong>${product.printTime || "Sob encomenda"}</strong></div>
+              <div><span>Material</span><strong>${escapeHtml(product.material || "ABS")}</strong></div>
+              <div><span>Cor</span><strong>${escapeHtml(product.color || "Sob consulta")}</strong></div>
+              <div><span>Produção</span><strong>${escapeHtml(product.printTime || "Sob encomenda")}</strong></div>
             </div>
-            ${product.tags && product.tags.length ? `<div class="detail-tags">${product.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>` : ""}
+            ${product.tags && product.tags.length ? `<div class="detail-tags">${product.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div>` : ""}
             ${isChildAbsProduct(product) ? `<p class="child-safety-note child-safety-note-detail"><strong>Atenção:</strong> peça fabricada em ABS, material derivado do petróleo. Não levar à boca e utilizar sob supervisão de um adulto. Caso prefira, consulte a possibilidade de produção em PLA, material produzido a partir de fontes renováveis, como amido de milho e cana-de-açúcar, conforme a disponibilidade de filamentos.</p>` : ""}
             <p class="filament-note"><strong>Materiais disponíveis:</strong> trabalhamos com PLA, PETG e ABS. Consulte a disponibilidade de cores e filamentos para o seu pedido.</p>
             <div class="detail-actions">
-              <a class="button button-primary js-detail-whatsapp" href="${whatsappBase}?text=${encodeURIComponent(`Olá! Vi o produto ${product.name} no site e gostaria de pedir um orçamento.`)}" target="_blank" rel="noopener">Pedir orçamento pelo WhatsApp <span aria-hidden="true">↗</span></a>
-              <a class="button button-secondary" href="${categoryUrl}">Ver mais em ${primaryCategory.label}</a>
+              <a class="button button-primary js-detail-whatsapp" href="${whatsappBase}?text=${encodeURIComponent(`Olá! Vi o produto ${product.name} no site e gostaria de pedir um orçamento.`)}" target="_blank" rel="noopener">Consultar valor e prazo no WhatsApp <span aria-hidden="true">↗</span></a>
+              <a class="button button-secondary" href="${categoryUrl}">Ver mais em ${escapeHtml(primaryCategory.label)}</a>
             </div>
             ${shootingNote}
           </div>
         </article>`;
+      detail.setAttribute("aria-busy", "false");
       setupGallery(product.name);
     })
     .catch(renderNotFound);

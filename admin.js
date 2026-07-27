@@ -45,6 +45,25 @@
     return btoa(binary);
   }
 
+  async function optimizeProductImage(file) {
+    if (!file.type.startsWith("image/")) throw new Error("Selecione um arquivo de imagem.");
+    const bitmap = await createImageBitmap(file);
+    const maxDimension = 1600;
+    const scale = Math.min(1, maxDimension / Math.max(bitmap.width, bitmap.height));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+    canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+    const context = canvas.getContext("2d");
+    context.fillStyle = "#fffdf9";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+    bitmap.close();
+    const blob = await new Promise((resolve, reject) => {
+      canvas.toBlob((result) => result ? resolve(result) : reject(new Error("Não foi possível otimizar a imagem.")), "image/jpeg", 0.9);
+    });
+    return blob.arrayBuffer();
+  }
+
   function apiUrl(path) {
     return `https://api.github.com/repos/${state.owner}/${state.repo}/contents/${path}`;
   }
@@ -220,10 +239,9 @@
     const file = fileInput.files[0];
     if (!file) return null;
 
-    const buffer = await file.arrayBuffer();
+    const buffer = await optimizeProductImage(file);
     const base64 = arrayBufferToBase64(buffer);
-    const ext = file.name.split(".").pop();
-    const safeName = `${Date.now()}.${ext}`;
+    const safeName = `${Date.now()}.jpg`;
     const path = `images/${safeName}`;
 
     await ghPutFile(path, base64, `Adiciona imagem ${safeName}`);
