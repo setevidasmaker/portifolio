@@ -84,10 +84,21 @@ nav a:not(.nav-cta):hover { color: var(--wine); }
 .section-heading { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(260px, .55fr); gap: 48px; align-items: end; }
 .section-heading h2 { margin: 0; max-width: 650px; font-size: clamp(38px, 5vw, 62px); line-height: 1; }
 .section-heading > p { margin: 0; color: var(--muted); font-size: 15px; }
-.filters { display: flex; gap: 8px; flex-wrap: wrap; margin: 42px 0 28px; }
-.filter-btn { border: 1px solid var(--line); background: transparent; color: var(--muted); min-height: 42px; padding: 0 17px; border-radius: 999px; cursor: pointer; font-family: var(--body); font-weight: 700; }
-.filter-btn:hover { color: var(--ink); background: var(--white); }
-.filter-btn.active { color: var(--white); background: var(--wine); border-color: var(--wine); }
+.category-filter-panel { margin: 38px 0 30px; padding: 24px; border: 1px solid rgba(18, 17, 16, .14); border-radius: 22px; background: rgba(255, 255, 255, .72); box-shadow: 0 18px 45px rgba(35, 28, 23, .07); }
+.category-filter-heading { display: flex; align-items: end; justify-content: space-between; gap: 28px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.category-filter-heading h3 { margin: 4px 0 0; max-width: 620px; font-family: var(--display); font-size: clamp(22px, 2vw, 31px); line-height: 1.05; letter-spacing: -.03em; }
+.category-filter-heading > p { max-width: 390px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.category-filter-kicker { display: inline-flex; align-items: center; gap: 8px; margin: 0; color: var(--wine); font-size: 11px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+.category-filter-kicker span { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--wine); color: var(--white); font-size: 13px; }
+.filters { display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0 14px; }
+.filter-btn { position: relative; border: 1px solid rgba(18, 17, 16, .18); background: var(--cream); color: var(--ink); min-height: 46px; padding: 0 19px; border-radius: 999px; cursor: pointer; font-family: var(--body); font-weight: 800; box-shadow: 0 2px 0 rgba(18, 17, 16, .08); transition: transform .18s ease, color .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.filter-btn:hover { transform: translateY(-2px); color: var(--wine); background: var(--white); border-color: rgba(154, 12, 34, .35); box-shadow: 0 8px 18px rgba(35, 28, 23, .1); }
+.filter-btn.active { padding-left: 43px; color: var(--white); background: var(--wine); border-color: var(--wine); box-shadow: 0 9px 22px rgba(154, 12, 34, .24); }
+.filter-btn.active::before { content: '✓'; position: absolute; left: 17px; top: 50%; display: grid; place-items: center; width: 18px; height: 18px; transform: translateY(-50%); border-radius: 50%; background: var(--white); color: var(--wine); font-size: 11px; font-weight: 900; }
+.filter-btn:focus-visible { outline: 3px solid rgba(154, 12, 34, .28); outline-offset: 3px; }
+.filters-status { margin: 0; color: var(--muted); font-size: 13px; }
+.filters-status strong { color: var(--wine); font-size: 15px; }
+.filters-status b { color: var(--ink); }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
 .card { position: relative; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; animation: cardIn .45s ease backwards; transition: transform .22s, box-shadow .22s; }
 .card:hover { transform: translateY(-5px); box-shadow: 0 22px 46px rgba(23,21,21,.12); }
@@ -256,8 +267,12 @@ footer { flex-shrink: 0; background: var(--ink); color: var(--white); padding: 4
   .highlight-grid > div:last-child { border-bottom: 0; }
   .products-section, .process-section { padding: 78px 0; }
   .grid { grid-template-columns: 1fr; }
-  .filters { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
+  .category-filter-panel { margin-top: 28px; padding: 18px 16px; border-radius: 18px; }
+  .category-filter-heading { display: block; }
+  .category-filter-heading > p { margin-top: 12px; }
+  .filters { flex-wrap: nowrap; overflow-x: auto; margin-top: 16px; padding: 2px 2px 10px; scrollbar-width: none; scroll-snap-type: x proximity; }
   .filter-btn { flex: 0 0 auto; }
+  .filter-btn { scroll-snap-align: start; }
   .contact-section { padding: 58px 0; }
   .contact-card { width: min(100% - 24px, 1180px); padding: 34px 22px; border-radius: 24px; }
   .contact-actions { min-width: 0; }

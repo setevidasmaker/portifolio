@@ -72,7 +72,17 @@
           </div>
           <p>Explore alguns trabalhos. Gostou de uma peça ou quer adaptar uma ideia? É só chamar.</p>
         </div>
-        <div id="filters" class="filters" aria-label="Filtrar produtos"></div>
+        <div class="category-filter-panel" aria-labelledby="category-filter-title">
+          <div class="category-filter-heading">
+            <div>
+              <p class="category-filter-kicker">Escolha uma categoria <span aria-hidden="true">↓</span></p>
+              <h3 id="category-filter-title">Que tipo de peça você quer conhecer?</h3>
+            </div>
+            <p>Toque em uma opção para filtrar os produtos. Você pode voltar para <strong>Todos</strong> quando quiser.</p>
+          </div>
+          <div id="filters" class="filters" aria-label="Categorias de produtos"></div>
+          <p id="filters-status" class="filters-status" aria-live="polite"></p>
+        </div>
         <div id="produtos-grid" class="grid" aria-live="polite"></div>
       </div>
     </section>

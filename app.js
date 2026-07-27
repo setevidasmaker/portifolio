@@ -6,6 +6,7 @@
 
   const grid = document.getElementById("produtos-grid");
   const filtersEl = document.getElementById("filters");
+  const filtersStatusEl = document.getElementById("filters-status");
   document.getElementById("brand-name").textContent = SITE_CONFIG.siteName;
   document.getElementById("brand-name-2").textContent = SITE_CONFIG.siteName;
   document.getElementById("tagline").textContent = SITE_CONFIG.tagline;
@@ -29,7 +30,7 @@
 
   let allProducts = [];
   const requestedFilter = new URLSearchParams(window.location.search).get("categoria");
-  let activeFilter = requestedFilter || "infantil";
+  let activeFilter = requestedFilter || "all";
 
   function catColor(catId) {
     return (categoryMap[catId] && categoryMap[catId].color) || "#8478AC";
@@ -53,8 +54,14 @@
       const btn = document.createElement("button");
       btn.className = "filter-btn" + (b.id === activeFilter ? " active" : "");
       btn.textContent = b.label;
+      btn.type = "button";
+      btn.setAttribute("aria-pressed", String(b.id === activeFilter));
       btn.addEventListener("click", () => {
         activeFilter = b.id;
+        const nextUrl = new URL(window.location.href);
+        if (activeFilter === "all") nextUrl.searchParams.delete("categoria");
+        else nextUrl.searchParams.set("categoria", activeFilter);
+        window.history.replaceState(null, "", nextUrl);
         renderFilters();
         renderGrid();
       });
@@ -64,6 +71,10 @@
 
   function renderGrid() {
     const items = activeFilter === "all" ? allProducts : allProducts.filter((p) => productCategories(p).includes(activeFilter));
+    if (filtersStatusEl) {
+      const selection = activeFilter === "all" ? "todas as categorias" : catLabel(activeFilter);
+      filtersStatusEl.innerHTML = `<strong>${items.length}</strong> ${items.length === 1 ? "produto" : "produtos"} em <b>${selection}</b>`;
+    }
 
     if (items.length === 0) {
       grid.innerHTML = `
@@ -110,7 +121,7 @@
     .then((data) => {
       allProducts = data;
       const validFilters = new Set(["all", ...allProducts.flatMap(productCategories)]);
-      if (!validFilters.has(activeFilter)) activeFilter = "infantil";
+      if (!validFilters.has(activeFilter)) activeFilter = "all";
       renderFilters();
       renderGrid();
     })
