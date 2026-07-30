@@ -20,6 +20,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260727-2">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    const analyticsConsent = localStorage.getItem("seteVidasAnalyticsConsent");
+    gtag("consent", "default", {
+      analytics_storage: analyticsConsent === "granted" ? "granted" : "denied",
+      wait_for_update: 500
+    });
+    gtag("js", new Date());
+    gtag("config", "G-SZGTYKNT2E");
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZGTYKNT2E"></script>
+  <script src="analytics.js?v=20260730-1" defer></script>
   <script src="config.js?v=20260727-1" defer></script>
   <script src="produto.js?v=20260727-2" defer></script>
 </head>

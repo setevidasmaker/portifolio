@@ -317,3 +317,49 @@ footer { flex-shrink: 0; background: var(--ink); color: var(--white); padding: 4
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+.analytics-consent {
+  position: fixed;
+  z-index: 1000;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+  color: #f8f4ef;
+  background: #201d1c;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
+}
+
+.analytics-consent p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.analytics-consent div {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.65rem;
+}
+
+.analytics-consent .button {
+  min-height: 42px;
+  padding: 0.65rem 1rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .analytics-consent {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .analytics-consent div {
+    justify-content: flex-end;
+  }
+}
