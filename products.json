@@ -1,5 +1,21 @@
 [
   {
+    "id": "chaveiro-rj-bt21",
+    "name": "Chaveiro RJ — BT21",
+    "category": "chaveiros",
+    "material": "ABS",
+    "color": "Branco, preto e vermelho",
+    "printTime": "Sob encomenda",
+    "description": "Chaveiro temático inspirado no personagem RJ, com detalhes em relevo e argola metálica, leve para usar em chaves, mochilas, bolsas e estojos.",
+    "tags": ["argola metálica", "temático", "presente", "produto não oficial"],
+    "image": "images/products/chaveiro-rj-bt21.webp",
+    "images": [
+      "images/products/gallery/chaveiro-rj-bt21/01.webp",
+      "images/products/gallery/chaveiro-rj-bt21/02.webp",
+      "images/products/gallery/chaveiro-rj-bt21/03.webp"
+    ]
+  },
+  {
     "id": "kit-colorir-capivaras",
     "name": "Kit de Pintura Infantil — 4 Capivaras + 3 Canetas",
     "category": "infantil",
