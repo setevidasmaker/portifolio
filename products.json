@@ -3,6 +3,7 @@
     "id": "chaveiro-rj-bt21",
     "name": "Chaveiro RJ — BT21",
     "category": "chaveiros",
+    "categories": ["chaveiros", "infantil"],
     "material": "ABS",
     "color": "Branco, preto e vermelho",
     "printTime": "Sob encomenda",
