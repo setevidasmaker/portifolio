@@ -117,6 +117,7 @@
 
       const productName = escapeHtml(p.name);
       const productUrl = `produto.html?id=${encodeURIComponent(p.id)}`;
+      const analyticsAttributes = `data-product-id="${escapeHtml(p.id)}" data-product-name="${productName}" data-product-category="${escapeHtml(catLabel(displayCategory))}"`;
       card.innerHTML = `
         <div class="card-image-wrap">
           <span class="cat-chip">${escapeHtml(catLabel(displayCategory))}</span>
@@ -132,8 +133,8 @@
           <p class="card-desc">${escapeHtml(p.description || "")}</p>
           ${p.tags && p.tags.length ? `<div class="card-tags">${p.tags.map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>` : ""}
           <div class="card-actions">
-            <a class="product-link" href="${productUrl}">Ver detalhes <span aria-hidden="true">→</span></a>
-            <a class="card-whatsapp" href="${whatsappHref(p.name)}" target="_blank" rel="noopener" aria-label="Pedir orçamento de ${productName}">Pedir orçamento</a>
+            <a class="product-link" href="${productUrl}" ${analyticsAttributes}>Ver detalhes <span aria-hidden="true">→</span></a>
+            <a class="card-whatsapp" href="${whatsappHref(p.name)}" target="_blank" rel="noopener" aria-label="Pedir orçamento de ${productName}" ${analyticsAttributes}>Pedir orçamento</a>
           </div>
         </div>
       `;

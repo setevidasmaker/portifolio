@@ -155,6 +155,15 @@
         </article>`;
       detail.setAttribute("aria-busy", "false");
       setupGallery(product.name);
+      const analyticsProduct = {
+        productId: product.id,
+        productName: product.name,
+        productCategory: primaryCategory.label,
+      };
+      document.querySelectorAll(".js-detail-whatsapp").forEach((link) => {
+        Object.assign(link.dataset, analyticsProduct);
+      });
+      window.SVMAnalytics?.viewProduct(analyticsProduct);
     })
     .catch(renderNotFound);
 })();

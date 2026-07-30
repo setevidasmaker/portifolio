@@ -1,9 +1,34 @@
 (() => {
   const storageKey = "seteVidasAnalyticsConsent";
 
-  function trackContactClick(channel, link) {
+  function productItem(source) {
+    const itemId = source?.dataset?.productId;
+    const itemName = source?.dataset?.productName;
+    if (!itemId || !itemName) return null;
+    return {
+      item_id: itemId,
+      item_name: itemName,
+      item_category: source.dataset.productCategory || "Outros"
+    };
+  }
+
+  function trackProductEvent(eventName, source, parameters = {}) {
     if (typeof window.gtag !== "function") return;
-    window.gtag("event", "generate_lead", {
+    const item = productItem(source);
+    window.gtag("event", eventName, {
+      ...parameters,
+      ...(item ? { items: [item] } : {})
+    });
+  }
+
+  window.SVMAnalytics = {
+    viewProduct(product) {
+      trackProductEvent("view_item", { dataset: product });
+    }
+  };
+
+  function trackContactClick(channel, link) {
+    trackProductEvent("generate_lead", link, {
       contact_channel: channel,
       link_url: link.href,
       page_location: window.location.href
@@ -14,7 +39,11 @@
     const link = event.target.closest("a");
     if (!link) return;
 
-    if (link.matches(".js-whatsapp, .js-detail-whatsapp, .card-whatsapp") || link.href.includes("wa.me/")) {
+    if (link.matches(".product-link")) {
+      trackProductEvent("select_item", link, {
+        item_list_name: "Catálogo de produtos"
+      });
+    } else if (link.matches(".js-whatsapp, .js-detail-whatsapp, .card-whatsapp") || link.href.includes("wa.me/")) {
       trackContactClick("whatsapp", link);
     } else if (link.matches(".js-instagram, #detail-instagram") || link.href.includes("instagram.com/")) {
       trackContactClick("instagram", link);
