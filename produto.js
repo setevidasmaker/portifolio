@@ -34,7 +34,7 @@
   document.getElementById("detail-instagram").href = contact.instagram || "https://www.instagram.com/setevidasmaker/";
 
   function whatsappProductLabel(product) {
-    return [product?.catalogId, product?.name].filter(Boolean).join(" — ");
+    return product?.name || "";
   }
 
   function setWhatsappLinks(product) {
