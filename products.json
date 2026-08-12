@@ -1,5 +1,24 @@
 [
   {
+    "id": "kit-pintura-princesas",
+    "catalogId": "#ID-16",
+    "name": "Kit de Pintura Infantil — 6 Princesas",
+    "category": "infantil",
+    "material": "ABS",
+    "color": "Peças brancas, 6 tintas coloridas e pincel",
+    "printTime": "Aproximadamente 2h40",
+    "description": "Kit criativo com seis princesas diferentes, seis tintas e um pincel para a criança pintar, misturar cores e personalizar cada personagem.",
+    "tags": ["6 princesas", "6 tintas", "1 pincel", "atividade infantil"],
+    "image": "images/products/kit-pintura-princesas.webp",
+    "images": [
+      "images/products/gallery/kit-pintura-princesas/01.webp",
+      "images/products/gallery/kit-pintura-princesas/02.webp",
+      "images/products/gallery/kit-pintura-princesas/03.webp",
+      "images/products/gallery/kit-pintura-princesas/04.webp",
+      "images/products/gallery/kit-pintura-princesas/05.webp"
+    ]
+  },
+  {
     "id": "chaveiro-rj-bt21",
     "name": "Chaveiro RJ — BT21",
     "category": "chaveiros",

@@ -33,9 +33,14 @@
   document.getElementById("detail-brand-name").textContent = SITE_CONFIG.siteName;
   document.getElementById("detail-instagram").href = contact.instagram || "https://www.instagram.com/setevidasmaker/";
 
-  function setWhatsappLinks(productName) {
-    const message = productName
-      ? `Olá! Vi o produto ${productName} no site e gostaria de pedir um orçamento.`
+  function whatsappProductLabel(product) {
+    return [product?.catalogId, product?.name].filter(Boolean).join(" — ");
+  }
+
+  function setWhatsappLinks(product) {
+    const productLabel = whatsappProductLabel(product);
+    const message = productLabel
+      ? `Olá! Vi o produto ${productLabel} no site e gostaria de pedir um orçamento.`
       : "Olá! Conheci a Sete Vidas Maker pelo site e gostaria de pedir um orçamento.";
     document.querySelectorAll(".js-detail-whatsapp").forEach((link) => {
       link.href = `${whatsappBase}?text=${encodeURIComponent(message)}`;
@@ -113,7 +118,7 @@
         brand: { "@type": "Brand", name: SITE_CONFIG.siteName },
       });
       document.head.appendChild(productSchema);
-      setWhatsappLinks(product.name);
+      setWhatsappLinks(product);
       detail.innerHTML = `
         <article class="product-detail">
           <div class="product-detail-gallery">
@@ -147,7 +152,7 @@
             ${isChildAbsProduct(product) ? `<p class="child-safety-note child-safety-note-detail"><strong>Atenção:</strong> peça fabricada em ABS, material derivado do petróleo. Não levar à boca e utilizar sob supervisão de um adulto. Caso prefira, consulte a possibilidade de produção em PLA, material produzido a partir de fontes renováveis, como amido de milho e cana-de-açúcar, conforme a disponibilidade de filamentos.</p>` : ""}
             <p class="filament-note"><strong>Materiais disponíveis:</strong> trabalhamos com PLA, PETG e ABS. Consulte a disponibilidade de cores e filamentos para o seu pedido.</p>
             <div class="detail-actions">
-              <a class="button button-primary js-detail-whatsapp" href="${whatsappBase}?text=${encodeURIComponent(`Olá! Vi o produto ${product.name} no site e gostaria de pedir um orçamento.`)}" target="_blank" rel="noopener">Consultar valor e prazo no WhatsApp <span aria-hidden="true">↗</span></a>
+              <a class="button button-primary js-detail-whatsapp" href="${whatsappBase}?text=${encodeURIComponent(`Olá! Vi o produto ${whatsappProductLabel(product)} no site e gostaria de pedir um orçamento.`)}" target="_blank" rel="noopener">Consultar valor e prazo no WhatsApp <span aria-hidden="true">↗</span></a>
               <a class="button button-secondary" href="${categoryUrl}">Ver mais em ${escapeHtml(primaryCategory.label)}</a>
             </div>
             ${shootingNote}
