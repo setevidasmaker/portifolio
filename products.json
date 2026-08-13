@@ -1,5 +1,26 @@
 [
   {
+    "id": "cubo-infinito-articulado",
+    "name": "Cubo Infinito Articulado Fidget",
+    "category": "infantil",
+    "categories": ["infantil", "outros"],
+    "material": "ABS",
+    "color": "Preto ou amarelo, conforme disponibilidade",
+    "printTime": "Aproximadamente 1h10",
+    "description": "Brinquedo antiestresse totalmente articulado, feito para abrir, dobrar e transformar continuamente em diferentes posições.",
+    "tags": ["fidget", "articulado", "movimento contínuo", "presente"],
+    "image": "images/products/cubo-infinito-articulado.webp",
+    "images": [
+      "images/products/gallery/cubo-infinito-articulado/01.webp",
+      "images/products/gallery/cubo-infinito-articulado/02.webp",
+      "images/products/gallery/cubo-infinito-articulado/03.webp",
+      "images/products/gallery/cubo-infinito-articulado/04.webp",
+      "images/products/gallery/cubo-infinito-articulado/05.webp",
+      "images/products/gallery/cubo-infinito-articulado/06.webp",
+      "images/products/gallery/cubo-infinito-articulado/07.webp"
+    ]
+  },
+  {
     "id": "kit-pintura-princesas",
     "catalogId": "#ID-16",
     "name": "Kit de Pintura Infantil — 6 Princesas",
