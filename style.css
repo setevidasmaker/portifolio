@@ -126,6 +126,12 @@ nav a:not(.nav-cta):hover { color: var(--wine); }
 .empty-state { grid-column: 1/-1; text-align: center; padding: 72px 20px; background: var(--white); border-radius: var(--radius); color: var(--muted); }
 .empty-state h3 { font-family: var(--display); color: var(--ink); }
 .empty-state p { max-width: 560px; margin: 10px auto 22px; }
+.custom-project-callout { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 22px; align-items: center; margin-top: 34px; padding: 28px 30px; color: var(--white); background: var(--ink); border-radius: 22px; box-shadow: 0 18px 42px rgba(23,21,21,.14); }
+.custom-project-icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px; color: var(--ink); background: var(--gold); font: 700 30px/1 var(--display); }
+.custom-project-callout h3 { margin: 5px 0 7px; font: 700 clamp(22px, 2.4vw, 31px)/1.08 var(--display); letter-spacing: -.03em; }
+.custom-project-callout p:not(.category-filter-kicker) { max-width: 760px; margin: 0; color: #c9c3bf; font-size: 14px; line-height: 1.55; }
+.custom-project-callout .category-filter-kicker { color: var(--gold); }
+.custom-project-callout .button { white-space: nowrap; }
 
 .process-section { padding: 110px 0; background: var(--wine); color: var(--white); }
 .process-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 110px; }
@@ -258,6 +264,8 @@ footer { flex-shrink: 0; background: var(--ink); color: var(--white); padding: 4
   .hero-visual { min-height: 520px; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .section-heading { grid-template-columns: 1fr; }
+  .custom-project-callout { grid-template-columns: auto 1fr; }
+  .custom-project-callout .button { grid-column: 2; justify-self: start; }
   .process-grid { gap: 48px; }
   .faq-grid { grid-template-columns: 1fr; gap: 38px; }
   .faq-intro { position: static; }
@@ -299,6 +307,8 @@ footer { flex-shrink: 0; background: var(--ink); color: var(--white); padding: 4
   .filters { flex-wrap: nowrap; overflow-x: auto; margin-top: 16px; padding: 2px 2px 10px; scrollbar-width: none; scroll-snap-type: x proximity; }
   .filter-btn { flex: 0 0 auto; }
   .filter-btn { scroll-snap-align: start; }
+  .custom-project-callout { grid-template-columns: 1fr; padding: 24px 20px; }
+  .custom-project-callout .button { grid-column: 1; width: 100%; white-space: normal; text-align: center; }
   .contact-section { padding: 58px 0; }
   .contact-card { width: min(100% - 24px, 1180px); padding: 34px 22px; border-radius: 24px; }
   .contact-actions { min-width: 0; }
