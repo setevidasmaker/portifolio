@@ -80,7 +80,7 @@
     "printTime": "Sob encomenda",
     "description": "Marcador leve e criativo que encaixa na página, deixando o rostinho do gato visível para você encontrar facilmente onde parou.",
     "tags": ["leitura", "presente", "gatos"],
-    "image": "images/products/marcador-pagina-gato.jpg",
+    "image": "images/products/marcador-pagina-gato-padronizado.webp",
     "images": [
       "images/products/gallery/marcador-pagina-gato/01.jpg",
       "images/products/gallery/marcador-pagina-gato/02.jpg",
@@ -98,7 +98,7 @@
     "printTime": "Sob encomenda",
     "description": "Kit com cinco marcadores de status planos para organizar as partidas e identificar rapidamente cada condição de jogo.",
     "tags": ["TCG", "kit com 5", "planos"],
-    "image": "images/products/marcadores-status-tcg.jpg",
+    "image": "images/products/marcadores-status-tcg-padronizado.webp",
     "images": [
       "images/products/gallery/marcadores-status-tcg/01.jpg",
       "images/products/gallery/marcadores-status-tcg/02.jpg"
@@ -113,7 +113,7 @@
     "printTime": "Sob encomenda",
     "description": "Suportes para fixação sob a mesa que mantêm fios e cabos agrupados, escondidos e bem posicionados no setup ou escritório.",
     "tags": ["kit com 6", "home office", "setup"],
-    "image": "images/products/organizador-cabos-mesa.jpg",
+    "image": "images/products/organizador-cabos-mesa-padronizado.webp",
     "images": [
       "images/products/gallery/organizador-cabos-mesa/01.jpg",
       "images/products/gallery/organizador-cabos-mesa/02.jpg",
@@ -182,7 +182,7 @@
     "printTime": "Sob encomenda",
     "description": "Organizador compacto para manter cabos USB, USB-C, mouse, teclado e carregadores sempre separados e ao alcance.",
     "tags": ["3, 5 ou 7 baias", "mesa", "setup"],
-    "image": "images/products/separador-cabos-usb.jpg",
+    "image": "images/products/separador-cabos-usb-padronizado.webp",
     "images": [
       "images/products/gallery/separador-cabos-usb/01.jpg",
       "images/products/gallery/separador-cabos-usb/02.jpg",
