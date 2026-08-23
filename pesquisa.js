@@ -89,11 +89,9 @@
           <h3>${productName}</h3>
           <div class="card-stats">
             ${product.material ? `<span><b>Material</b> ${escapeHtml(product.material)}</span>` : ""}
-            ${product.color ? `<span><b>Cor</b> ${escapeHtml(product.color)}</span>` : ""}
             <span><b>Produção</b> Sob encomenda</span>
           </div>
           <p class="card-desc">${escapeHtml(product.description || "")}</p>
-          ${product.tags?.length ? `<div class="card-tags">${product.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div>` : ""}
           <div class="card-actions">
             <a class="product-link" href="produto.html?id=${encodeURIComponent(product.id)}" ${analyticsAttributes}>Ver detalhes <span aria-hidden="true">→</span></a>
             <a class="card-whatsapp" href="${whatsappHref(product.name)}" target="_blank" rel="noopener" aria-label="Pedir orçamento de ${productName}" ${analyticsAttributes}>Pedir orçamento</a>

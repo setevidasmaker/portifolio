@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260823-2">
+  <link rel="stylesheet" href="style.css?v=20260823-3">
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -38,9 +38,10 @@
     gtag("config", "G-SZGTYKNT2E");
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZGTYKNT2E"></script>
-  <script src="analytics.js?v=20260823-1" defer></script>
+  <script src="analytics.js?v=20260823-2" defer></script>
   <script src="config.js?v=20260727-1" defer></script>
-  <script src="app.js?v=20260730-1" defer></script>
+  <script src="navigation.js?v=20260823-1" defer></script>
+  <script src="app.js?v=20260823-1" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -68,14 +69,17 @@
         <span class="brand-mark"><img src="images/logo-mark.png" alt="" width="954" height="700" decoding="async"></span>
         <span class="brand-copy"><strong id="brand-name">Sete Vidas Maker</strong><small>Impressão 3D</small></span>
       </a>
-      <nav aria-label="Navegação principal">
+      <nav class="site-nav" id="site-navigation" aria-label="Navegação principal">
         <a href="#produtos">Produtos</a>
         <a href="pesquisa.html">Pesquisar</a>
         <a href="#materiais">Materiais</a>
         <a href="#como-funciona">Como funciona</a>
         <a href="#duvidas">Dúvidas</a>
-        <a class="nav-cta js-whatsapp" href="#contato">Fazer orçamento</a>
+        <a class="nav-cta js-whatsapp" href="#contato">Pedir orçamento</a>
       </nav>
+      <button class="mobile-menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -87,7 +91,7 @@
           <h1>Da sua ideia à <em>peça pronta.</em></h1>
           <p class="hero-lead" id="tagline">Criamos peças personalizadas para organizar, presentear, jogar e resolver necessidades do dia a dia. Você envia a referência; nós cuidamos do projeto e da impressão.</p>
           <div class="hero-actions">
-            <a class="button button-primary js-whatsapp" href="#contato">Pedir orçamento no WhatsApp <span aria-hidden="true">↗</span></a>
+            <a class="button button-primary js-whatsapp" href="#contato">Pedir orçamento <span aria-hidden="true">↗</span></a>
             <a class="button button-secondary" href="#produtos">Ver peças já produzidas</a>
           </div>
           <div class="hero-proof" aria-label="Diferenciais">
@@ -97,15 +101,22 @@
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="Marca Sete Vidas Maker">
-          <div class="logo-stage">
-            <span class="stage-label">SETE VIDAS MAKER / IMPRESSÃO 3D</span>
-            <img src="images/logo.png" alt="Logo Sete Vidas Maker" width="1254" height="1254" fetchpriority="high" decoding="async">
-            <span class="stage-line"></span>
+        <div class="hero-visual" aria-label="Produtos produzidos pela Sete Vidas Maker">
+          <div class="hero-product-stage">
+            <a class="hero-product-card hero-product-main" href="produto.html?id=cubo-infinito-articulado" data-product-id="cubo-infinito-articulado" data-product-name="Cubo Infinito Articulado Fidget" data-product-category="Infantil" data-item-list-name="Destaques da página inicial">
+              <img src="images/products/cubo-infinito-articulado.webp" alt="Cubo Infinito Articulado Fidget" width="1254" height="1254" fetchpriority="high" decoding="async">
+              <span><small>Articulado</small>Cubo Infinito</span>
+            </a>
+            <a class="hero-product-card hero-product-top" href="produto.html?id=kit-pintura-princesas" data-product-id="kit-pintura-princesas" data-product-name="Kit de Pintura Infantil — 6 Princesas" data-product-category="Infantil" data-item-list-name="Destaques da página inicial">
+              <img src="images/products/kit-pintura-princesas.webp" alt="Kit de Pintura Infantil com seis princesas" width="1254" height="1254" decoding="async">
+              <span><small>Criativo</small>Kit de Pintura</span>
+            </a>
+            <a class="hero-product-card hero-product-bottom" href="produto.html?id=chaveiro-rj-bt21" data-product-id="chaveiro-rj-bt21" data-product-name="Chaveiro RJ — BT21" data-product-category="Chaveiros" data-item-list-name="Destaques da página inicial">
+              <img src="images/products/chaveiro-rj-bt21.webp" alt="Chaveiro RJ — BT21" width="1254" height="1254" decoding="async">
+              <span><small>Personalizado</small>Chaveiro RJ</span>
+            </a>
+            <div class="hero-showcase-badge"><img src="images/logo-mark.png" alt="" width="954" height="700"><span><strong>Produção sob encomenda</strong><small>Cor, material e medidas para seu projeto</small></span></div>
           </div>
-          <div class="floating-note note-one"><b>01</b><span>Ideia</span></div>
-          <div class="floating-note note-two"><b>02</b><span>Impressão</span></div>
-          <div class="floating-note note-three"><b>03</b><span>Peça pronta</span></div>
         </div>
       </div>
     </section>
@@ -264,7 +275,7 @@
         <span class="brand-copy"><strong id="brand-name-2">Sete Vidas Maker</strong><small>Feito camada por camada</small></span>
       </a>
       <p>Impressão 3D sob encomenda · Birigui — SP, Brasil</p>
-      <div class="footer-links"><a href="pesquisa.html">Pesquisar</a><a class="js-instagram" href="#" target="_blank" rel="noopener">Instagram</a><a class="js-whatsapp" href="#">WhatsApp</a></div>
+      <div class="footer-links"><a href="#produtos">Produtos</a><a href="pesquisa.html">Pesquisar</a><a href="#materiais">Materiais</a><a class="js-instagram" href="#" target="_blank" rel="noopener">Instagram</a><a class="js-whatsapp" href="#">WhatsApp</a></div>
     </div>
   </footer>
 

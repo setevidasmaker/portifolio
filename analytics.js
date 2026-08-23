@@ -39,7 +39,7 @@
     const link = event.target.closest("a");
     if (!link) return;
 
-    if (link.matches(".product-link")) {
+    if (link.matches(".product-link, .hero-product-card")) {
       trackProductEvent("select_item", link, {
         item_list_name: link.dataset.itemListName || "Catálogo de produtos"
       });

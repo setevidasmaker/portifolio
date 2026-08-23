@@ -127,11 +127,9 @@
           <h3>${productName}</h3>
           <div class="card-stats">
             ${p.material ? `<span><b>Material</b> ${escapeHtml(p.material)}</span>` : ""}
-            ${p.color ? `<span><b>Cor</b> ${escapeHtml(p.color)}</span>` : ""}
             ${p.printTime ? `<span><b>Produção</b> ${escapeHtml(p.printTime)}</span>` : ""}
           </div>
           <p class="card-desc">${escapeHtml(p.description || "")}</p>
-          ${p.tags && p.tags.length ? `<div class="card-tags">${p.tags.map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>` : ""}
           <div class="card-actions">
             <a class="product-link" href="${productUrl}" ${analyticsAttributes}>Ver detalhes <span aria-hidden="true">→</span></a>
             <a class="card-whatsapp" href="${whatsappHref(p.name)}" target="_blank" rel="noopener" aria-label="Pedir orçamento de ${productName}" ${analyticsAttributes}>Pedir orçamento</a>

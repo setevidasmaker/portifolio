@@ -63,12 +63,15 @@
   function setupGallery(productName) {
     const mainImage = document.getElementById("product-main-image");
     const thumbnails = document.querySelectorAll(".gallery-thumbnail");
+    const galleryPosition = document.getElementById("gallery-position");
     if (!mainImage || !thumbnails.length) return;
 
     thumbnails.forEach((thumbnail) => {
       thumbnail.addEventListener("click", () => {
         mainImage.src = thumbnail.dataset.image;
-        mainImage.alt = `${productName} — foto ${Number(thumbnail.dataset.index) + 1}`;
+        const activeIndex = Number(thumbnail.dataset.index) + 1;
+        mainImage.alt = `${productName} — foto ${activeIndex}`;
+        if (galleryPosition) galleryPosition.textContent = `Foto ${activeIndex} de ${thumbnails.length}`;
         thumbnails.forEach((item) => {
           const isActive = item === thumbnail;
           item.classList.toggle("is-active", isActive);
@@ -132,7 +135,7 @@
                     <img src="${escapeHtml(image)}" alt="" loading="lazy" decoding="async">
                   </button>`).join("")}
               </div>
-              <p class="gallery-hint">Selecione uma miniatura para ampliar</p>` : ""}
+              <p class="gallery-hint"><strong id="gallery-position">Foto 1 de ${galleryImages.length}</strong><span>Deslize ou selecione uma miniatura para ampliar</span></p>` : ""}
           </div>
           <div class="product-detail-copy">
             <div class="detail-categories">
@@ -149,11 +152,13 @@
               <div><span>Produção</span><strong>${escapeHtml(product.printTime || "Sob encomenda")}</strong></div>
             </div>
             ${product.tags && product.tags.length ? `<div class="detail-tags">${product.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div>` : ""}
+            <div class="detail-actions">
+              <a class="button button-primary js-detail-whatsapp" href="${whatsappBase}?text=${encodeURIComponent(`Olá! Vi o produto ${whatsappProductLabel(product)} no site e gostaria de pedir um orçamento.`)}" target="_blank" rel="noopener">Pedir orçamento no WhatsApp <span aria-hidden="true">↗</span></a>
+              <a class="button button-secondary" href="${categoryUrl}">Ver mais em ${escapeHtml(primaryCategory.label)}</a>
+            </div>
+            <div class="detail-information">
             ${isChildAbsProduct(product) ? `<p class="child-safety-note child-safety-note-detail"><strong>Atenção:</strong> peça fabricada em ABS, material derivado do petróleo. Não levar à boca e utilizar sob supervisão de um adulto. Caso prefira, solicite a produção em PLA, material produzido a partir de fontes renováveis, como amido de milho e cana-de-açúcar.</p>` : ""}
             <p class="filament-note"><strong>Cor e material sob pedido:</strong> trabalhamos com PLA, PETG e ABS. Se a combinação desejada não estiver em estoque, providenciaremos a compra do filamento para atender ao pedido; o prazo será informado no orçamento.</p>
-            <div class="detail-actions">
-              <a class="button button-primary js-detail-whatsapp" href="${whatsappBase}?text=${encodeURIComponent(`Olá! Vi o produto ${whatsappProductLabel(product)} no site e gostaria de pedir um orçamento.`)}" target="_blank" rel="noopener">Consultar valor e prazo no WhatsApp <span aria-hidden="true">↗</span></a>
-              <a class="button button-secondary" href="${categoryUrl}">Ver mais em ${escapeHtml(primaryCategory.label)}</a>
             </div>
             ${shootingNote}
           </div>
