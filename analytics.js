@@ -41,7 +41,7 @@
 
     if (link.matches(".product-link")) {
       trackProductEvent("select_item", link, {
-        item_list_name: "Catálogo de produtos"
+        item_list_name: link.dataset.itemListName || "Catálogo de produtos"
       });
     } else if (link.matches(".js-whatsapp, .js-detail-whatsapp, .card-whatsapp") || link.href.includes("wa.me/")) {
       trackContactClick("whatsapp", link);

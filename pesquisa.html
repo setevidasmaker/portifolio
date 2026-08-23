@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pesquise produtos de impressão 3D da Sete Vidas Maker por nome, categoria, material ou característica.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#151313">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Sete Vidas Maker">
+  <meta property="og:title" content="Pesquisar produtos — Sete Vidas Maker">
+  <meta property="og:description" content="Encontre peças já produzidas ou solicite a criação de um produto personalizado.">
+  <meta property="og:url" content="https://setevidasmaker.github.io/portifolio/pesquisa.html">
+  <meta property="og:image" content="https://setevidasmaker.github.io/portifolio/images/og-sete-vidas.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://setevidasmaker.github.io/portifolio/pesquisa.html">
+  <title>Pesquisar produtos — Sete Vidas Maker</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20260823-2">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    const analyticsConsent = localStorage.getItem("seteVidasAnalyticsConsent");
+    gtag("consent", "default", {
+      analytics_storage: analyticsConsent === "granted" ? "granted" : "denied",
+      wait_for_update: 500
+    });
+    gtag("js", new Date());
+    gtag("config", "G-SZGTYKNT2E");
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZGTYKNT2E"></script>
+  <script src="analytics.js?v=20260823-1" defer></script>
+  <script src="config.js?v=20260727-1" defer></script>
+  <script src="pesquisa.js?v=20260823-1" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="Sete Vidas Maker — início">
+        <span class="brand-mark"><img src="images/logo-mark.png" alt="" width="954" height="700" decoding="async"></span>
+        <span class="brand-copy"><strong id="search-brand-name">Sete Vidas Maker</strong><small>Impressão 3D</small></span>
+      </a>
+      <nav aria-label="Navegação principal">
+        <a href="./#produtos">Produtos</a>
+        <a href="./#materiais">Materiais</a>
+        <a class="nav-cta js-whatsapp" href="#">Fazer orçamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="search-page-main" id="conteudo">
+    <section class="search-hero">
+      <div class="container search-hero-inner">
+        <p class="eyebrow"><span></span> Pesquisa de produtos</p>
+        <h1>O que você está procurando?</h1>
+        <p>Pesquise pelo nome da peça, categoria, material ou característica. Se não encontrar, também podemos desenvolver algo novo com base no seu pedido.</p>
+
+        <form id="product-search-form" class="product-search-form" role="search">
+          <label class="sr-only" for="product-search-input">Pesquisar produtos</label>
+          <span class="search-icon" aria-hidden="true"></span>
+          <input id="product-search-input" type="search" name="q" autocomplete="off" placeholder="Ex.: chaveiro, infantil, organizador, ABS...">
+          <button id="search-clear" type="button" aria-label="Limpar pesquisa" hidden>Limpar</button>
+          <button type="submit">Pesquisar</button>
+        </form>
+
+        <div class="search-suggestions" aria-label="Sugestões de pesquisa">
+          <span>Experimente:</span>
+          <button type="button" data-search-term="chaveiro">Chaveiros</button>
+          <button type="button" data-search-term="infantil">Infantil</button>
+          <button type="button" data-search-term="organizador">Organizadores</button>
+          <button type="button" data-search-term="jogos">Jogos</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-results-section" aria-labelledby="search-results-title">
+      <div class="container">
+        <div class="search-results-heading">
+          <div>
+            <p class="eyebrow"><span></span> Resultados</p>
+            <h2 id="search-results-title">Todos os produtos</h2>
+          </div>
+          <p id="search-results-status" role="status" aria-live="polite">Carregando produtos...</p>
+        </div>
+        <div id="search-results" class="grid search-results-grid" aria-live="polite" aria-busy="true"></div>
+      </div>
+    </section>
+  </main>
+
+  <a class="floating-whatsapp js-whatsapp" href="#" aria-label="Pedir orçamento pelo WhatsApp">
+    <img src="images/icons/whatsapp.svg" alt="" width="22" height="22">
+    <span>Orçamento</span>
+  </a>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand footer-brand" href="./">
+        <span class="brand-mark"><img src="images/logo-mark.png" alt="" width="954" height="700" loading="lazy" decoding="async"></span>
+        <span class="brand-copy"><strong>Sete Vidas Maker</strong><small>Feito camada por camada</small></span>
+      </a>
+      <p>Impressão 3D sob encomenda · Birigui — SP, Brasil</p>
+      <div class="footer-links"><a class="js-instagram" href="#" target="_blank" rel="noopener">Instagram</a><a class="js-whatsapp" href="#">WhatsApp</a></div>
+    </div>
+  </footer>
+</body>
+</html>
