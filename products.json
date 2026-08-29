@@ -56,6 +56,70 @@
     ]
   },
   {
+    "id": "kit-chaveiros-bts-army-arirang",
+    "catalogId": "#ID-24",
+    "name": "Kit com 3 Chaveiros BTS, ARMY e Arirang",
+    "category": "chaveiros",
+    "material": "ABS",
+    "color": "Várias combinações de cores, conforme disponibilidade",
+    "printTime": "Sob encomenda",
+    "description": "Kit temático com três modelos de chaveiro em relevo — BTS, ARMY e Arirang — acompanhados de argolas metálicas para usar em chaves, mochilas, bolsas e estojos.",
+    "tags": ["kit com 3", "argolas metálicas", "presente", "produto não oficial"],
+    "image": "images/products/gallery/kit-chaveiros-bts/01.jpg",
+    "images": [
+      "images/products/gallery/kit-chaveiros-bts/02.jpg",
+      "images/products/gallery/kit-chaveiros-bts/03.jpg"
+    ]
+  },
+  {
+    "id": "chaveiro-army",
+    "catalogId": "#ID-23",
+    "name": "Chaveiro ARMY",
+    "category": "chaveiros",
+    "material": "ABS",
+    "color": "Várias combinações de cores, conforme disponibilidade",
+    "printTime": "Sob encomenda",
+    "description": "Chaveiro temático ARMY com símbolo e nome em relevo, leve e acompanhado de argola metálica para usar em chaves, mochilas, bolsas e estojos.",
+    "tags": ["ARMY", "argola metálica", "presente", "produto não oficial"],
+    "image": "images/products/gallery/chaveiro-army/01.jpg",
+    "images": [
+      "images/products/gallery/chaveiro-army/02.jpg",
+      "images/products/gallery/chaveiro-army/03.jpg"
+    ]
+  },
+  {
+    "id": "chaveiro-bts",
+    "catalogId": "#ID-22",
+    "name": "Chaveiro BTS",
+    "category": "chaveiros",
+    "material": "ABS",
+    "color": "Várias combinações de cores, conforme disponibilidade",
+    "printTime": "Sob encomenda",
+    "description": "Chaveiro temático BTS com símbolo e letras em relevo, leve e acompanhado de argola metálica para usar em chaves, mochilas, bolsas e estojos.",
+    "tags": ["BTS", "argola metálica", "presente", "produto não oficial"],
+    "image": "images/products/gallery/chaveiro-bts/01.jpg",
+    "images": [
+      "images/products/gallery/chaveiro-bts/02.jpg",
+      "images/products/gallery/chaveiro-bts/03.jpg"
+    ]
+  },
+  {
+    "id": "chaveiro-arirang-bts",
+    "catalogId": "#ID-21",
+    "name": "Chaveiro Arirang — BTS",
+    "category": "chaveiros",
+    "material": "ABS",
+    "color": "Várias combinações de cores, conforme disponibilidade",
+    "printTime": "Sob encomenda",
+    "description": "Chaveiro temático Arirang em relevo, leve e acompanhado de argola metálica para usar em chaves, mochilas, bolsas e estojos.",
+    "tags": ["Arirang", "BTS", "argola metálica", "produto não oficial"],
+    "image": "images/products/gallery/chaveiro-arirang-bts/01.jpg",
+    "images": [
+      "images/products/gallery/chaveiro-arirang-bts/02.jpg",
+      "images/products/gallery/chaveiro-arirang-bts/03.jpg"
+    ]
+  },
+  {
     "id": "kit-colorir-capivaras",
     "name": "Kit de Pintura Infantil — 4 Capivaras + 3 Canetas",
     "category": "infantil",
