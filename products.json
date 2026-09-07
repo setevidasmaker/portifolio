@@ -1,5 +1,18 @@
 [
   {
+    "id": "anel-antiestresse-articulado",
+    "catalogId": "#ID-17",
+    "name": "Anel Antiestresse Articulado",
+    "category": "outros",
+    "material": "ABS",
+    "color": "Várias combinações de cores, conforme disponibilidade",
+    "printTime": "Sob encomenda",
+    "description": "Anel antiestresse com duas partes que giram entre si, ideal para manter as mãos ocupadas e ajudar a aliviar a tensão no trabalho, nos estudos ou no dia a dia.",
+    "tags": ["antiestresse", "anel articulado", "movimento giratório", "presente"],
+    "image": "images/products/anel-antiestresse-articulado.webp",
+    "images": []
+  },
+  {
     "id": "cubo-infinito-articulado",
     "name": "Cubo Infinito Articulado Fidget",
     "category": "infantil",
