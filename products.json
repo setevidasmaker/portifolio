@@ -1,5 +1,45 @@
 [
   {
+    "id": "contador-vida-tcg",
+    "catalogId": "#ID-27",
+    "name": "Contador de Vida para TCG",
+    "category": "jogos",
+    "material": "ABS",
+    "color": "Vermelho, preto, verde, azul, amarelo ou branco",
+    "printTime": "Sob encomenda",
+    "description": "Contador de dois dígitos com discos numerados giratórios, setas de leitura e apoio para mesa. Disponível em seis cores com símbolos laterais diferentes. Inclui uma unidade na cor escolhida.",
+    "tags": ["TCG", "contador de vida", "dois dígitos", "6 cores"],
+    "image": "images/products/contador-vida-tcg.webp",
+    "images": ["images/products/gallery/contador-vida-tcg/01.webp", "images/products/gallery/contador-vida-tcg/02.webp", "images/products/gallery/contador-vida-tcg/03.webp", "images/products/gallery/contador-vida-tcg/04.webp", "images/products/gallery/contador-vida-tcg/05.webp", "images/products/gallery/contador-vida-tcg/06.webp", "images/products/gallery/contador-vida-tcg/07.webp", "images/products/gallery/contador-vida-tcg/08.webp", "images/products/gallery/contador-vida-tcg/09.webp", "images/products/gallery/contador-vida-tcg/10.webp"]
+  },
+  {
+    "id": "kit-marcadores-dano-tcg",
+    "catalogId": "#ID-30",
+    "name": "Kit com 25 Marcadores de Dano para TCG",
+    "category": "jogos",
+    "material": "ABS",
+    "color": "Amarelo com números brancos",
+    "printTime": "Sob encomenda",
+    "description": "Kit com 25 fichas circulares com números em relevo: 10 de valor 10, 10 de valor 50 e 5 de valor 100. Combine os valores para acompanhar o dano nas partidas. Cartas e demais acessórios não inclusos.",
+    "tags": ["TCG", "25 fichas", "10, 50 e 100", "números em relevo"],
+    "image": "images/products/kit-marcadores-dano-tcg.webp",
+    "images": ["images/products/gallery/kit-marcadores-dano-tcg/01.webp", "images/products/gallery/kit-marcadores-dano-tcg/02.webp", "images/products/gallery/kit-marcadores-dano-tcg/03.webp"]
+  },
+  {
+    "id": "regua-guia-leitura",
+    "catalogId": "#ID-6",
+    "name": "Régua Guia de Leitura",
+    "category": "infantil",
+    "categories": ["infantil", "outros"],
+    "material": "ABS",
+    "color": "Várias cores, conforme disponibilidade",
+    "printTime": "Sob encomenda",
+    "description": "Régua avulsa com janela que destaca uma linha por vez para acompanhar a leitura. Mede aproximadamente 195 × 39,5 mm, com abertura de 155 × 10 mm. Inclui uma régua; livros e objetos de cena não inclusos.",
+    "tags": ["leitura", "alfabetização", "unidade avulsa", "janela de leitura"],
+    "image": "images/products/regua-guia-leitura.webp",
+    "images": ["images/products/gallery/regua-guia-leitura/01.webp", "images/products/gallery/regua-guia-leitura/02.webp", "images/products/gallery/regua-guia-leitura/03.webp", "images/products/gallery/regua-guia-leitura/04.webp", "images/products/gallery/regua-guia-leitura/05.webp", "images/products/gallery/regua-guia-leitura/06.webp"]
+  },
+  {
     "id": "estrela-sensorial-articulada",
     "catalogId": "#ID-18",
     "name": "Estrela Sensorial Articulada",

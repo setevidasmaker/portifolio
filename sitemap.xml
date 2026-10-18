@@ -2,16 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://setevidasmaker.github.io/portifolio/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://setevidasmaker.github.io/portifolio/pesquisa.html</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://setevidasmaker.github.io/portifolio/produto.html?id=contador-vida-tcg</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://setevidasmaker.github.io/portifolio/produto.html?id=kit-marcadores-dano-tcg</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://setevidasmaker.github.io/portifolio/produto.html?id=regua-guia-leitura</loc><lastmod>2026-10-18</lastmod></url>
   <url><loc>https://setevidasmaker.github.io/portifolio/produto.html?id=estrela-sensorial-articulada</loc><lastmod>2026-09-07</lastmod></url>
   <url><loc>https://setevidasmaker.github.io/portifolio/produto.html?id=anel-antiestresse-articulado</loc><lastmod>2026-09-07</lastmod></url>
   <url><loc>https://setevidasmaker.github.io/portifolio/produto.html?id=cubo-infinito-articulado</loc><lastmod>2026-08-12</lastmod></url>
