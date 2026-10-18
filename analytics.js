@@ -1,5 +1,20 @@
 (() => {
   const storageKey = "seteVidasAnalyticsConsent";
+  let analyticsLoaded = false;
+  function loadAnalytics() {
+    if (analyticsLoaded) return;
+    analyticsLoaded = true;
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-SZGTYKNT2E";
+    document.head.appendChild(script);
+  }
+  if (localStorage.getItem(storageKey) === "granted") {
+    window.addEventListener("load", () => {
+      if ("requestIdleCallback" in window) window.requestIdleCallback(loadAnalytics, { timeout: 4000 });
+      else window.setTimeout(loadAnalytics, 1500);
+    }, { once: true });
+  }
 
   function productItem(source) {
     const itemId = source?.dataset?.productId;
@@ -70,6 +85,7 @@
     const consent = button.dataset.consent;
     localStorage.setItem(storageKey, consent);
     window.gtag?.("consent", "update", { analytics_storage: consent });
+    if (consent === "granted") loadAnalytics();
     notice.remove();
   });
 

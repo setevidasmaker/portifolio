@@ -83,7 +83,7 @@
       <article class="card" style="--cat-color:${escapeHtml(category.color)};animation-delay:${index * 0.04}s">
         <div class="card-image-wrap">
           <span class="cat-chip">${escapeHtml(category.label)}</span>
-          <img src="${escapeHtml(product.image || "images/logo-mark.png")}" alt="${productName}" loading="lazy" decoding="async">
+          <img src="images/products/thumbs/${encodeURIComponent(product.id)}-400.webp" srcset="images/products/thumbs/${encodeURIComponent(product.id)}-400.webp 400w, images/products/thumbs/${encodeURIComponent(product.id)}-800.webp 800w" sizes="(max-width: 600px) calc(100vw - 34px), (max-width: 900px) 45vw, 380px" width="800" height="800" alt="${productName}" loading="lazy" decoding="async" onerror="this.onerror=null;this.removeAttribute('srcset');this.src='${escapeHtml(product.image || "images/logo-mark-small.webp")}'">
         </div>
         <div class="card-body">
           <h3>${productName}</h3>
